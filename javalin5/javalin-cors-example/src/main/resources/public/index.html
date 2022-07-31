@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>CORS example</title>
+    </head>
+    <body>
+        <h1>CORS example</h1>
+        <div id="output">fetching...</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+        <script>
+            axios.get('http://localhost:80').then(response => {
+                document.getElementById("output").innerHTML = JSON.stringify(response.data);
+            });
+        </script>
+    </body>
+</html>
