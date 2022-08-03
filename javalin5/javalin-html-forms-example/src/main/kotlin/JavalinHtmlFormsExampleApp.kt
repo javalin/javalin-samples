@@ -1,16 +1,16 @@
 import io.javalin.Javalin
-import io.javalin.core.util.FileUtil
 import io.javalin.http.staticfiles.Location
+import io.javalin.util.FileUtil
 
 private val reservations = mutableMapOf<String?, String?>(
-        "saturday" to "No reservation",
-        "sunday" to "No reservation"
+    "saturday" to "No reservation",
+    "sunday" to "No reservation"
 )
 
-fun main(args: Array<String>) {
+fun main() {
 
     val app = Javalin.create {
-        it.addStaticFiles("/public", Location.CLASSPATH)
+        it.staticFiles.add("/public", Location.CLASSPATH)
     }.start(7070)
 
     app.post("/make-reservation") { ctx ->

@@ -1,12 +1,12 @@
 import io.javalin.Javalin;
-import io.javalin.core.util.FileUtil;
 import io.javalin.http.staticfiles.Location;
+import io.javalin.util.FileUtil;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class JavalinHtmlFormsExampleApp {
 
-    private static Map<String, String> reservations = new HashMap<String, String>() {{
+    private static final Map<String, String> reservations = new HashMap<String, String>() {{
         put("saturday", "No reservation");
         put("sunday", "No reservation");
     }};
@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(config -> {
-            config.addStaticFiles("/public", Location.CLASSPATH);
+            config.staticFiles.add("/public", Location.CLASSPATH);
         }).start(7070);
 
         app.post("/make-reservation", ctx -> {
