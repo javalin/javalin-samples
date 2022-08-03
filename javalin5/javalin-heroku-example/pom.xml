@@ -49,7 +49,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>JavalinEmailExampleApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
