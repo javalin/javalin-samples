@@ -9,7 +9,7 @@ import org.eclipse.jetty.server.session.JDBCSessionDataStoreFactory;
 import org.eclipse.jetty.server.session.SessionCache;
 import org.eclipse.jetty.server.session.SessionHandler;
 
-public class Sessions {
+public class SessionUtil {
 
     // --------------------- File Sessions Handler ---------------------
     public static SessionHandler fileSessionHandler() {

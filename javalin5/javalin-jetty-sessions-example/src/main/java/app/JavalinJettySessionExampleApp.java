@@ -1,14 +1,13 @@
 package app;
 
 import io.javalin.Javalin;
-import io.javalin.core.util.RouteOverviewPlugin;
 
-public class Main {
+public class JavalinJettySessionExampleApp {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(config -> {
-            config.sessionHandler(Sessions::fileSessionHandler);
-            config.registerPlugin(new RouteOverviewPlugin("/"));
+            config.jetty.sessionHandler(SessionUtil::fileSessionHandler);
+            config.plugins.enableRouteOverview("/");
         }).start(7070);
 
         app.get("/write", ctx -> {
@@ -25,13 +24,13 @@ public class Main {
 
         app.get("/invalidate", ctx -> {
             // if you want to invalidate a session, jetty will clean everything up for you
-            ctx.req.getSession().invalidate();
+            ctx.req().getSession().invalidate();
             ctx.result("Session invalidated");
         });
 
         app.get("/change-id", ctx -> {
             // it could be wise to change the session id on login, to protect against session fixation attacks
-            ctx.req.changeSessionId();
+            ctx.req().changeSessionId();
             ctx.result("Session ID changed");
         });
 
