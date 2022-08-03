@@ -1,6 +1,6 @@
 import io.javalin.Javalin;
 
-public class Main {
+public class JavalinHerokuExampleApp {
 
     public static void main(String[] args) {
         Javalin.create()
@@ -13,7 +13,7 @@ public class Main {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 7000;
+        return 7070;
     }
 
 }
