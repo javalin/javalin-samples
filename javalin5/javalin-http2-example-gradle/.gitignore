@@ -1,9 +1,0 @@
-.DS_Store
-.gradle
-build/
-.idea
-*.iml
-*.ipr
-*.iws
-out/
-keystore.p12
