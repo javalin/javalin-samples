@@ -3,11 +3,9 @@ import io.javalin.Javalin
 
 fun main() {
 
-    val app = Javalin.create{
-        it.accessManager(Auth::accessManager)
-    }.start(7000)
-
-    app.routes {
+    Javalin.create{
+        it.core.accessManager(Auth::accessManager)
+    }.routes {
         get("/", { ctx -> ctx.redirect("/users") }, Role.ANYONE)
         path("users") {
             get(UserController::getAllUserIds, Role.ANYONE)
@@ -18,6 +16,6 @@ fun main() {
                 delete(UserController::deleteUser, Role.USER_WRITE)
             }
         }
-    }
+    }.start(7070)
 
 }

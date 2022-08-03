@@ -6,10 +6,10 @@ object UserController {
     private data class User(val name: String = "", val email: String = "")
 
     private val users = hashMapOf(
-            randomId() to User(name = "Alice", email = "alice@alice.kt"),
-            randomId() to User(name = "Bob", email = "bob@bob.kt"),
-            randomId() to User(name = "Carol", email = "carol@carol.kt"),
-            randomId() to User(name = "Dave", email = "dave@dave.kt")
+        randomId() to User(name = "Alice", email = "alice@alice.kt"),
+        randomId() to User(name = "Bob", email = "bob@bob.kt"),
+        randomId() to User(name = "Carol", email = "carol@carol.kt"),
+        randomId() to User(name = "Dave", email = "dave@dave.kt")
     )
 
     fun getAllUserIds(ctx: Context) {
