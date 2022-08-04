@@ -9,7 +9,7 @@ import static org.mockito.Mockito.verify;
 
 public class UnitTest {
 
-    private Context ctx = mock(Context.class);
+    private final Context ctx = mock(Context.class);
 
     @Test
     public void POST_to_create_users_gives_201_for_valid_username() {

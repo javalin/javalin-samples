@@ -21,7 +21,7 @@ fun main() {
             }
         }
         JavalinVue.stateFunction = { ctx -> mapOf("currentUser" to currentUser(ctx)) }
-    }.start(7000)
+    }.start(7070)
 
     app.get("/", VueComponent("hello-world"), Role.ANYONE)
     app.get("/users", VueComponent("user-overview"), Role.ANYONE)

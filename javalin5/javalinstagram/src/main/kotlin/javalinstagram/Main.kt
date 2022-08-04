@@ -34,7 +34,7 @@ fun main() {
         }
         it.compressionStrategy(Brotli(), Gzip())
         JavalinVue.stateFunction = { ctx -> mapOf("currentUser" to ctx.currentUser) }
-    }.start(7000)
+    }.start(7070)
 
     app.routes {
         get("/signin", VueComponent("<signin-view></signin-view>"), ANYONE)

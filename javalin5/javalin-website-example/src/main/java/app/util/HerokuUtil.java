@@ -6,6 +6,6 @@ public class HerokuUtil {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 7000;
+        return 7070;
     }
 }
