@@ -6,14 +6,14 @@ import io.javalin.websocket.WsContext;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Main {
+public class JavalinRealtimeCollaborationExampleApp {
 
     private static Map<String, Collab> collabs = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
 
         Javalin.create(config -> {
-            config.addStaticFiles("/public", Location.CLASSPATH);
+            config.staticFiles.add("/public", Location.CLASSPATH);
         }).ws("/docs/{doc-id}", ws -> {
             ws.onConnect(ctx -> {
                 if (getCollab(ctx) == null) {

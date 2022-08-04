@@ -12,7 +12,7 @@ fun main() {
     val collaborations = ConcurrentHashMap<String, Collaboration>()
 
     Javalin.create {
-        it.addStaticFiles("/public", Location.CLASSPATH)
+        it.staticFiles.add("/public", Location.CLASSPATH)
     }.apply {
         ws("/docs/{doc-id}") { ws ->
             ws.onConnect { ctx ->
