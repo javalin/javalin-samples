@@ -1,11 +1,11 @@
 <template id="app-frame">
   <v-app>
-    <v-content>
+    <v-main>
       <nav-bar></nav-bar>
       <v-container>
         <slot></slot>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 <script>

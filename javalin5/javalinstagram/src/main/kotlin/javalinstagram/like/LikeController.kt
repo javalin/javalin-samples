@@ -1,6 +1,7 @@
 package javalinstagram.like
 
 import io.javalin.http.Context
+import io.javalin.http.queryParamAsClass
 import javalinstagram.currentUser
 
 object LikeController {

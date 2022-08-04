@@ -2,24 +2,26 @@
   <header class="navbar">
     <v-container class="pa-0">
       <v-toolbar flat>
-        <a href="/"
-          ><img class="logo-img" src="/logo.png" alt="Javalinstagram"
-        /></a>
+        <a href="/">
+          <img class="logo-img" src="/logo.png" alt="Javalinstagram"/>
+        </a>
         <a href="/"><span class="logo-text">Javalinstagram</span></a>
         <v-spacer></v-spacer>
         <v-toolbar-items v-if="$javalin.state.currentUser">
           <v-menu bottom left offset-y>
-            <v-btn slot="activator" flat>
-              <v-icon color="grey darken-2" size="30">account_circle</v-icon>
-            </v-btn>
+            <template v-slot:activator="{ on }">
+              <v-btn v-on="on" text>
+                <v-icon color="grey darken-2" size="30">account_circle</v-icon>
+              </v-btn>
+            </template>
             <v-list>
-              <v-list-tile>
+              <v-list-item>
                 <small>Signed in as '{{ $javalin.state.currentUser }}'</small>
-              </v-list-tile>
-              <v-list-tile>
+              </v-list-item>
+              <v-list-item>
                 <a href="/my-photos">My photos</a>
-              </v-list-tile>
-              <v-list-tile @click="signOut">Sign out</v-list-tile>
+              </v-list-item>
+              <v-list-item @click="signOut">Sign out</v-list-item>
             </v-list>
           </v-menu>
         </v-toolbar-items>
@@ -41,7 +43,6 @@ Vue.component("nav-bar", {
 </script>
 <style>
 .navbar {
-  background: #f5f5f5;
   border-bottom: 1px solid #ddd;
 }
 

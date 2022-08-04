@@ -21,12 +21,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="gray darken-2" flat="flat" @click="clearUploadForm"
-            >Cancel</v-btn
-          >
-          <v-btn color="primary" flat="flat" @click="uploadPhoto"
-            >Publish</v-btn
-          >
+          <v-btn color="gray darken-2" text @click="clearUploadForm">Cancel</v-btn>
+          <v-btn color="primary" @click="uploadPhoto">Publish</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

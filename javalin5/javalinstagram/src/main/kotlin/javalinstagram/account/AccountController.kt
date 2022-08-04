@@ -1,9 +1,10 @@
 package javalinstagram.account
 
-import io.javalin.core.util.Header
 import io.javalin.http.BadRequestResponse
 import io.javalin.http.Context
+import io.javalin.http.Header
 import io.javalin.http.UnauthorizedResponse
+import io.javalin.http.bodyValidator
 import javalinstagram.currentUser
 import org.mindrot.jbcrypt.BCrypt
 

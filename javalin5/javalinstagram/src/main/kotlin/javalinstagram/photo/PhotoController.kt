@@ -1,6 +1,7 @@
 package javalinstagram.photo
 
 import io.javalin.http.Context
+import javalinstagram.basePath
 import javalinstagram.currentUser
 import net.coobird.thumbnailator.Thumbnails
 import net.coobird.thumbnailator.geometry.Positions
@@ -22,7 +23,7 @@ object PhotoController {
                     .crop(Positions.CENTER)
                     .size(800, 800)
                     .outputFormat("jpg")
-                    .toFile(File("user-uploads/static/p/$id.jpg"))
+                    .toFile(File("${basePath}user-uploads/static/p/$id.jpg")) // can remove basepath if you are opening the project standalone
             PhotoDao.add(photoId = "$id.jpg", ownerId = ctx.currentUser!!)
             ctx.status(201)
         } ?: ctx.status(400).json("No photo found")
