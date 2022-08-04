@@ -4,11 +4,11 @@ import io.javalin.Javalin;
 import static io.javalin.apibuilder.ApiBuilder.get;
 import static io.javalin.apibuilder.ApiBuilder.post;
 
-public class Application {
+public class JavalinTestingExampleApp {
 
     private Javalin app;
 
-    public Application(String dependency) {
+    public JavalinTestingExampleApp(String dependency) {
         app = Javalin.create().routes(() -> {
             get("/users", UserController::getAll);
             post("/users", UserController::create);

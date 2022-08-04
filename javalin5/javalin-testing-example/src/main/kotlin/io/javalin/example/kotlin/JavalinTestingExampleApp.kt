@@ -4,7 +4,7 @@ import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.apibuilder.ApiBuilder.post
 
-class Application(dependency: String) {
+class JavalinTestingExampleApp(dependency: String) {
 
     val app = Javalin.create().routes {
         get("/users", UserController::getAll)
