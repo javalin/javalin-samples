@@ -1,16 +1,15 @@
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import io.javalin.Javalin;
 import io.prometheus.client.exporter.HTTPServer;
 import java.io.IOException;
 import java.util.Random;
+import kong.unirest.Unirest;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.StatisticsHandler;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.slf4j.LoggerFactory;
 import static io.javalin.apibuilder.ApiBuilder.get;
 
-public class Main {
+public class JavalinPrometheusExampleApp {
 
     public static void main(String[] args) throws Exception {
 
@@ -18,7 +17,7 @@ public class Main {
         QueuedThreadPool queuedThreadPool = new QueuedThreadPool(200, 8, 60_000);
 
         Javalin app = Javalin.create(config ->
-            config.server(() -> {
+            config.jetty.server(() -> {
                 Server server = new Server(queuedThreadPool);
                 server.setHandler(statisticsHandler);
                 return server;
@@ -53,12 +52,9 @@ public class Main {
 
     private static void spawnRandomRequests() throws InterruptedException {
         new Thread(() -> {
-            try {
-                for (int i = 0; i < new Random().nextInt(50); i++) {
-                    Unirest.get("http://localhost:7070/1").asString(); // we want a lot more "200 - OK" traffic
-                    Unirest.get("http://localhost:7070/" + (1 + new Random().nextInt(5))).asString(); // hit a random (1-5) endpoint
-                }
-            } catch (UnirestException ignored) {
+            for (int i = 0; i < new Random().nextInt(50); i++) {
+                Unirest.get("http://localhost:7070/1").asString(); // we want a lot more "200 - OK" traffic
+                Unirest.get("http://localhost:7070/" + (1 + new Random().nextInt(5))).asString(); // hit a random (1-5) endpoint
             }
         }).start();
         Thread.sleep((int) (Math.random() * 250));

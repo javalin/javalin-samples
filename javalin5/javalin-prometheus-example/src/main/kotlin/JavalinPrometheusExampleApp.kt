@@ -1,8 +1,7 @@
-import com.mashape.unirest.http.Unirest
-import com.sun.media.jfxmedia.logging.Logger
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.prometheus.client.exporter.HTTPServer
+import kong.unirest.Unirest
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.server.handler.StatisticsHandler
 import org.eclipse.jetty.util.thread.QueuedThreadPool
@@ -14,7 +13,7 @@ fun main() {
     val queuedThreadPool = QueuedThreadPool(200, 8, 60_000)
 
     val app = Javalin.create {
-        it.server {
+        it.jetty.server {
             Server(queuedThreadPool).apply {
                 handler = statisticsHandler
             }
