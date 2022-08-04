@@ -4,6 +4,8 @@ import app.user.User
 import app.user.UserDao
 import io.javalin.apibuilder.ApiBuilder.*
 import io.javalin.Javalin
+import io.javalin.http.HttpStatus
+import io.javalin.http.bodyAsClass
 
 fun main() {
 
@@ -11,8 +13,8 @@ fun main() {
 
     val app = Javalin.create().apply {
         exception(Exception::class.java) { e, ctx -> e.printStackTrace() }
-        error(404) { ctx -> ctx.json("not found") }
-    }.start(7000)
+        error(HttpStatus.NOT_FOUND) { ctx -> ctx.json("not found") }
+    }.start(7070)
 
     app.routes {
 
