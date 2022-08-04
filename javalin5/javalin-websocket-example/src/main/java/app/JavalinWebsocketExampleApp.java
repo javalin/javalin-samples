@@ -8,21 +8,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
 import static j2html.TagCreator.article;
 import static j2html.TagCreator.attrs;
 import static j2html.TagCreator.b;
 import static j2html.TagCreator.p;
 import static j2html.TagCreator.span;
 
-public class Chat {
+public class JavalinWebsocketExampleApp {
 
-    private static Map<WsContext, String> userUsernameMap = new ConcurrentHashMap<>();
+    private static final Map<WsContext, String> userUsernameMap = new ConcurrentHashMap<>();
     private static int nextUserNumber = 1; // Assign to username for next connecting user
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
-            config.addStaticFiles("/public", Location.CLASSPATH);
+            config.staticFiles.add("/public", Location.CLASSPATH);
         }).start(HerokuUtil.getHerokuAssignedPort());
 
         app.ws("/chat", ws -> {
@@ -46,9 +45,10 @@ public class Chat {
     private static void broadcastMessage(String sender, String message) {
         userUsernameMap.keySet().stream().filter(ctx -> ctx.session.isOpen()).forEach(session -> {
             session.send(
-                new JSONObject()
-                    .put("userMessage", createHtmlMessageFromSender(sender, message))
-                    .put("userlist", userUsernameMap.values()).toString()
+                Map.of(
+                    "userMessage", createHtmlMessageFromSender(sender, message),
+                    "userlist", userUsernameMap.values()
+                )
             );
         });
     }

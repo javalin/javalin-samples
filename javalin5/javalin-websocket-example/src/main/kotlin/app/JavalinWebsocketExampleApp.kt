@@ -4,7 +4,6 @@ import io.javalin.Javalin
 import io.javalin.http.staticfiles.Location
 import io.javalin.websocket.WsContext
 import j2html.TagCreator.*
-import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -12,9 +11,9 @@ import java.util.concurrent.ConcurrentHashMap
 private val userUsernameMap = ConcurrentHashMap<WsContext, String>()
 private var nextUserNumber = 1 // Assign to username for next connecting user
 
-fun main(args: Array<String>) {
+fun main() {
     Javalin.create {
-        it.addStaticFiles("/public", Location.CLASSPATH)
+        it.staticFiles.add("/public", Location.CLASSPATH)
     }.apply {
         ws("/chat") { ws ->
             ws.onConnect { ctx ->
@@ -38,9 +37,10 @@ fun main(args: Array<String>) {
 fun broadcastMessage(sender: String, message: String) {
     userUsernameMap.keys.filter { it.session.isOpen }.forEach { session ->
         session.send(
-                JSONObject()
-                        .put("userMessage", createHtmlMessageFromSender(sender, message))
-                        .put("userlist", userUsernameMap.values).toString()
+            mapOf(
+                "userMessage" to createHtmlMessageFromSender(sender, message),
+                "userlist" to userUsernameMap.values
+            )
         )
     }
 }
@@ -48,9 +48,9 @@ fun broadcastMessage(sender: String, message: String) {
 // Builds a HTML element with a sender-name, a message, and a timestamp,
 private fun createHtmlMessageFromSender(sender: String, message: String): String {
     return article(
-            b("$sender says:"),
-            span(attrs(".timestamp"), SimpleDateFormat("HH:mm:ss").format(Date())),
-            p(message)
+        b("$sender says:"),
+        span(attrs(".timestamp"), SimpleDateFormat("HH:mm:ss").format(Date())),
+        p(message)
     ).render()
 }
 

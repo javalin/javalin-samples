@@ -11,23 +11,13 @@
     <dependencies>
         <dependency>
             <groupId>io.javalin</groupId>
-            <artifactId>javalin</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.32</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20210307</version>
+            <artifactId>javalin-bundle</artifactId>
+            <version>5.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.j2html</groupId>
             <artifactId>j2html</artifactId>
-            <version>1.5.0</version>
+            <version>1.6.0</version>
         </dependency>
     </dependencies>
 
@@ -59,7 +49,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>app.Chat</mainClass>
+                            <mainClass>app.JavalinWebsocketExampleApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
