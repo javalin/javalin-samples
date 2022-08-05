@@ -47,7 +47,7 @@ public class JavalinPrometheusExampleApp {
         StatisticsHandlerCollector.initialize(statisticsHandler);
         QueuedThreadPoolCollector.initialize(queuedThreadPool);
         HTTPServer prometheusServer = new HTTPServer(7080);
-        LoggerFactory.getLogger("Main").info("Prometheus is listening on: http://localhost:7080");
+        LoggerFactory.getLogger("JavalinPrometheusExampleApp").info("Prometheus is listening on: http://localhost:7080");
     }
 
     private static void spawnRandomRequests() throws InterruptedException {

@@ -1,6 +1,7 @@
 package app;
 
 import java.io.File;
+import org.eclipse.jetty.http.HttpCookie;
 import org.eclipse.jetty.nosql.mongodb.MongoSessionDataStoreFactory;
 import org.eclipse.jetty.server.session.DatabaseAdaptor;
 import org.eclipse.jetty.server.session.DefaultSessionCache;
@@ -72,6 +73,14 @@ public class SessionUtil {
         mongoSessionDataStoreFactory.setDbName(dbName);
         mongoSessionDataStoreFactory.setCollectionName(collectionName);
         return mongoSessionDataStoreFactory;
+    }
+
+    static SessionHandler customSessionHandler() {
+        final SessionHandler sessionHandler = new SessionHandler();
+        sessionHandler.setHttpOnly(true);
+        sessionHandler.setSecureRequestOnly(true);
+        sessionHandler.setSameSite(HttpCookie.SameSite.STRICT);
+        return sessionHandler;
     }
 
 }

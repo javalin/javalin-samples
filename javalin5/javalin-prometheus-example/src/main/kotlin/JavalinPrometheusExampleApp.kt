@@ -43,7 +43,7 @@ private fun initializePrometheus(statisticsHandler: StatisticsHandler, queuedThr
     StatisticsHandlerCollector.initialize(statisticsHandler)
     QueuedThreadPoolCollector.initialize(queuedThreadPool)
     val prometheusServer = HTTPServer(7080)
-    LoggerFactory.getLogger("Main").info("Prometheus is listening on: http://localhost:7080")
+    LoggerFactory.getLogger("JavalinPrometheusExampleApp").info("Prometheus is listening on: http://localhost:7080")
 }
 
 private fun spawnRandomRequests() {

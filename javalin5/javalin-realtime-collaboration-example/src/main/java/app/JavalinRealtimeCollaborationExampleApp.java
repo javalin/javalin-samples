@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class JavalinRealtimeCollaborationExampleApp {
 
-    private static Map<String, Collab> collabs = new ConcurrentHashMap<>();
+    private static final Map<String, Collab> collabs = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
 
