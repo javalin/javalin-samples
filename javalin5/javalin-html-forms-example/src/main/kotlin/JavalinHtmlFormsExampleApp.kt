@@ -26,7 +26,7 @@ fun main() {
         ctx.uploadedFiles("files").forEach {
             FileUtil.streamToFile(it.content, "upload/${it.filename}")
         }
-        ctx.html("Upload complete")
+        ctx.html("Upload successful")
     }
 
 }

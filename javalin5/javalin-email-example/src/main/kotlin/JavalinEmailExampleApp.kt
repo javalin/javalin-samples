@@ -2,7 +2,7 @@ import io.javalin.Javalin
 import org.apache.commons.mail.DefaultAuthenticator
 import org.apache.commons.mail.SimpleEmail
 
-fun main(args: Array<String>) {
+fun main() {
 
     val app = Javalin.create().start(7070)
 

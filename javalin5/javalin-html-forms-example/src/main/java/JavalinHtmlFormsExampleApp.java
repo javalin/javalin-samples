@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class JavalinHtmlFormsExampleApp {
 
-    private static final Map<String, String> reservations = new HashMap<String, String>() {{
+    private static final Map<String, String> reservations = new HashMap<>() {{
         put("saturday", "No reservation");
         put("sunday", "No reservation");
     }};
