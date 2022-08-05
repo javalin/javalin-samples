@@ -1,4 +1,5 @@
 import io.javalin.http.Context
+import io.javalin.http.bodyAsClass
 import java.util.*
 
 object UserController {
@@ -17,7 +18,7 @@ object UserController {
     }
 
     fun createUser(ctx: Context) {
-        users[randomId()] = ctx.bodyAsClass(User::class.java)
+        users[randomId()] = ctx.bodyAsClass()
     }
 
     fun getUser(ctx: Context) {
@@ -25,7 +26,7 @@ object UserController {
     }
 
     fun updateUser(ctx: Context) {
-        users[ctx.pathParam("userId")] = ctx.bodyAsClass(User::class.java)
+        users[ctx.pathParam("userId")] = ctx.bodyAsClass()
     }
 
     fun deleteUser(ctx: Context) {
