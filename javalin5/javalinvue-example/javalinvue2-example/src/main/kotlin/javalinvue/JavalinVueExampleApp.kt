@@ -4,6 +4,7 @@ import io.javalin.Javalin
 import io.javalin.security.RouteRole
 import io.javalin.http.Header
 import io.javalin.http.Context
+import io.javalin.http.HttpStatus
 import io.javalin.http.staticfiles.Location
 import io.javalin.vue.JavalinVue
 import io.javalin.vue.VueComponent
@@ -29,7 +30,7 @@ fun main() {
     app.get("/", VueComponent("hello-world"), Role.ANYONE)
     app.get("/users", VueComponent("user-overview"), Role.ANYONE)
     app.get("/users/{user-id}", VueComponent("user-profile"), Role.LOGGED_IN)
-    app.error(404, "html", VueComponent("not-found"))
+    app.error(HttpStatus.NOT_FOUND, "html", VueComponent("not-found"))
 
     app.get("/api/users", UserController::getAll, Role.ANYONE)
     app.get("/api/users/{user-id}", UserController::getOne, Role.LOGGED_IN)
