@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FunctionalTest {
 
     Javalin app = new JavalinTestingExampleApp("someDependency").javalinApp(); // inject any dependencies you might have
-    private String usersJson = new JavalinJackson().toJsonString(UserController.users);
+    private final String usersJson = new JavalinJackson().toJsonString(UserController.users);
 
     @Test
     public void GET_to_fetch_users_returns_list_of_users() {
