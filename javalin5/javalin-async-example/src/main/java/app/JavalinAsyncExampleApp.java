@@ -12,7 +12,7 @@ import io.javalin.ssl.plugin.SSLPlugin;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
-public class Main {
+public class JavalinAsyncExampleApp {
 
     private static ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 

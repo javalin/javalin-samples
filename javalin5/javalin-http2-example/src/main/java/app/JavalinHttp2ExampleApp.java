@@ -4,7 +4,7 @@ import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import io.javalin.ssl.plugin.SSLPlugin;
 
-public class Main {
+public class JavalinHttp2ExampleApp {
 
     public static void main(String[] args) {
 
