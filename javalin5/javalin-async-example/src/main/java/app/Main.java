@@ -6,6 +6,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
+
+import io.javalin.ssl.plugin.SSLPlugin;
+import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 public class Main {
@@ -14,10 +18,26 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Supplier<Server> serverSupplier = () ->{
+            //Create a new server with a custom thread pool
+            Server server = new Server(new QueuedThreadPool(10, 2, 60_000));
+
+            //Configure the SSL plugin
+            SSLPlugin sslPlugin = new SSLPlugin(sslConfig -> {
+                sslConfig.keystoreFromClasspath("keystore.jks","password");
+            });
+
+            //Patch the server with the SSL plugin, to enable SSL and HTTP/2 support
+            sslPlugin.patch(server);
+
+            return server;
+        };
+
         Javalin app = Javalin.create(config -> {
-            config.server(() -> ServerUtil.createHttp2Server(new QueuedThreadPool(10, 2, 60_000)));
-            config.addStaticFiles("/public", Location.CLASSPATH);
+            config.jetty.server(serverSupplier);
+            config.staticFiles.add("/public", Location.CLASSPATH);
         }).start();
+
 
         app.get("/async", ctx -> {
             long taskTime = ctx.queryParamAsClass("task-time", Long.class).get();
