@@ -2,6 +2,8 @@
 
 This repo contains a benchmarking tool created for playing around with futures in [Javalin](https://javalin.io).
 
+The plugin [javalin-ssl](https://github.com/javalin/javalin-ssl) is used to enable HTTP/2.
+
 It's only intended as an illustration of the concepts of running requests asynchronously. Since your browser is being used
 as a benchmarking tool results will become wildly inaccurate if you try to send too many requests.
 

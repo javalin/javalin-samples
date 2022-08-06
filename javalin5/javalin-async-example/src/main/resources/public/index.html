@@ -81,7 +81,7 @@
                                 this.isBusy = false;
                             }
                         };
-                        let url = "https://localhost:8443/" + mode + "?task-time=" + this.taskTime;
+                        let url = window.location.origin + "/" + mode + "?task-time=" + this.taskTime;
                         for (let i = 0; i < this.numberOfRequests; i++) {
                             fetch(url).then(handleRequestFinish);
                         }
