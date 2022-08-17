@@ -48,7 +48,7 @@
     </v-dialog>
   </div>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("photo-gallery", {
   template: "#photo-gallery",
   props: ["forUser", "take"],

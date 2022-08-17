@@ -28,7 +28,7 @@
     </v-dialog>
   </div>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("photo-upload-form", {
   template: "#photo-upload-form",
   data: () => ({

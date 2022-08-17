@@ -10,18 +10,18 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:300,400,500,700|Material+Icons" rel="stylesheet">
         <link href="/webjars/vuetify/2.6.7/dist/vuetify.min.css" rel="stylesheet">
         <link rel="preload" href="/logo.png" as="image">
-        <script src="/webjars/momentjs/2.29.3/min/moment.min.js"></script>
-        <script src="/webjars/axios/0.27.2/dist/axios.min.js"></script>
-        <script src="/webjars/vue/2.6.10/dist/vue.min.js"></script>
-        <script src="webjars/vuetify/2.6.7/dist/vuetify.min.js"></script>
-        <script>Vue.prototype.$eventBus = new Vue();</script>
+        <script src="/webjars/momentjs/2.29.3/min/moment.min.js" nonce="@addNonce"></script>
+        <script src="/webjars/axios/0.27.2/dist/axios.min.js" nonce="@addNonce"></script>
+        <script src="/webjars/vue/2.6.10/dist/vue.min.js" nonce="@addNonce"></script>
+        <script src="webjars/vuetify/2.6.7/dist/vuetify.min.js" nonce="@addNonce"></script>
+        <script nonce="@addNonce">Vue.prototype.$eventBus = new Vue();</script>
         @componentRegistration
     </head>
     <body>
         <main id="main-vue" v-cloak>
             @routeComponent
         </main>
-        <script>
+        <script nonce="@addNonce">
             const vue = new Vue({
                 el: "#main-vue",
                 vuetify: new Vuetify(),

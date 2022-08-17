@@ -5,6 +5,6 @@
     <photo-gallery :forUser="true"></photo-gallery>
   </app-frame>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("my-photos-view", { template: "#my-photos-view" });
 </script>

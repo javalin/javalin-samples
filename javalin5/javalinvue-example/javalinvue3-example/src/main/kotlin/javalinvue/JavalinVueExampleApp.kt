@@ -6,7 +6,6 @@ import io.javalin.http.Header
 import io.javalin.http.Context
 import io.javalin.http.HttpStatus
 import io.javalin.http.staticfiles.Location
-import io.javalin.vue.JavalinVue
 import io.javalin.vue.VueComponent
 
 enum class Role : RouteRole { ANYONE, LOGGED_IN }
@@ -23,9 +22,9 @@ fun main() {
             }
         }
         // The line below should be deleted if you are opening the project standalone
-        JavalinVue.rootDirectory("javalin5/javalinvue-example/javalinvue3-example/src/main/resources/vue", Location.EXTERNAL)
-        JavalinVue.stateFunction = { ctx -> mapOf("currentUser" to currentUser(ctx)) }
-        JavalinVue.vueAppName = "app"
+        config.vue.rootDirectory("javalin5/javalinvue-example/javalinvue3-example/src/main/resources/vue", Location.EXTERNAL)
+        config.vue.stateFunction = { ctx -> mapOf("currentUser" to currentUser(ctx)) }
+        config.vue.vueAppName = "app"
     }.start(7070)
 
     app.get("/", VueComponent("hello-world"), Role.ANYONE)

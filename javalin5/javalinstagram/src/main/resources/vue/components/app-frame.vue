@@ -8,7 +8,7 @@
     </v-main>
   </v-app>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("app-frame", { template: "#app-frame" });
 </script>
 <style>

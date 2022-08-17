@@ -51,7 +51,7 @@
     </v-card>
   </app-frame>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("signin-view", {
   template: "#signin-view",
   data: () => ({

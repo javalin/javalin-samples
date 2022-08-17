@@ -4,7 +4,6 @@ import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
 import io.javalin.http.Header
 import io.javalin.http.staticfiles.Location
-import io.javalin.vue.JavalinVue
 import io.javalin.vue.VueComponent
 import javalinstagram.Role.ANYONE
 import javalinstagram.Role.LOGGED_IN
@@ -33,8 +32,9 @@ fun main() {
             }
         }
         it.compression.brotliAndGzip()
-        JavalinVue.stateFunction = { ctx -> mapOf("currentUser" to ctx.currentUser) }
-        JavalinVue.rootDirectory("${basePath}src/main/resources/vue", Location.EXTERNAL) // comment out this line if you are opening the project standalone
+        it.vue.enableCspAndNonces = true
+        it.vue.stateFunction = { ctx -> mapOf("currentUser" to ctx.currentUser) }
+        it.vue.rootDirectory("${basePath}src/main/resources/vue", Location.EXTERNAL) // comment out this line if you are opening the project standalone
     }.start(7070)
 
     app.routes {

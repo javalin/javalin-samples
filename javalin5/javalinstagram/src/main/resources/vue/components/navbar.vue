@@ -29,7 +29,7 @@
     </v-container>
   </header>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("nav-bar", {
   template: "#nav-bar",
   methods: {

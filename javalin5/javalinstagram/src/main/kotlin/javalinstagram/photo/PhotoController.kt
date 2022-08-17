@@ -16,7 +16,7 @@ object PhotoController {
         Files.createDirectories(Paths.get("user-uploads/static/p")) // create folder if not exists
         ctx.uploadedFile("photo")?.let { photoFile ->
             val photo = File.createTempFile("temp", "upload").apply {
-                photoFile.content.copyTo(this.outputStream())
+                photoFile.contentAndClose { it.copyTo(this.outputStream()) }
             }
             val id = UUID.randomUUID().toString().replace("-", "")
             Thumbnails.of(photo)
@@ -25,6 +25,7 @@ object PhotoController {
                     .outputFormat("jpg")
                     .toFile(File("${basePath}user-uploads/static/p/$id.jpg")) // can remove basepath if you are opening the project standalone
             PhotoDao.add(photoId = "$id.jpg", ownerId = ctx.currentUser!!)
+            photo.delete()
             ctx.status(201)
         } ?: ctx.status(400).json("No photo found")
     }

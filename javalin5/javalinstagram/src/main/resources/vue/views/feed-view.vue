@@ -4,6 +4,6 @@
     <photo-gallery take="8"></photo-gallery>
   </app-frame>
 </template>
-<script>
+<script nonce="@addNonce">
 Vue.component("feed-view", { template: "#feed-view" });
 </script>
