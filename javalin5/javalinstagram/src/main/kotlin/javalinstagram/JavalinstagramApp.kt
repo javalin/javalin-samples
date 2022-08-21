@@ -23,7 +23,7 @@ fun main() {
         it.staticFiles.add("${basePath}src/main/resources/public", Location.EXTERNAL)
         it.staticFiles.enableWebjars()
         it.jetty.sessionHandler { Session.fileSessionHandler() }
-        it.core.accessManager { handler, ctx, permitted ->
+        it.accessManager { handler, ctx, permitted ->
             when {
                 ANYONE in permitted -> handler.handle(ctx)
                 ctx.currentUser != null && permitted.contains(LOGGED_IN) -> handler.handle(ctx)

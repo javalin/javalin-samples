@@ -4,7 +4,7 @@ import io.javalin.Javalin
 fun main() {
 
     Javalin.create{
-        it.core.accessManager(Auth::accessManager)
+        it.accessManager(Auth::accessManager)
     }.routes {
         get("/", { ctx -> ctx.redirect("/users") }, Role.ANYONE)
         path("users") {
