@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Make Maven Wrapper executable
-        if: contains(matrix.os, 'win') == false
+        if: contains(matrix.os, 'win') == false && hashFiles('mvnw') != ''
         run: chmod +x ./mvnw
       - name: Build with Maven
         if: hashFiles('pom.xml') != ''
