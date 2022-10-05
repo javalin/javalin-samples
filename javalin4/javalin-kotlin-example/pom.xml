@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.javalin</groupId>
-    <artifactId>javalin-kotlin-example</artifactId>
+    <artifactId>javalin4-kotlin-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

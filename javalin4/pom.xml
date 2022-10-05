@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.javalin.samples</groupId>
+    <artifactId>javalin4-samples</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>javalin-async-example</module>
+        <!--<module>javalin-cors-example</module> checked-->
+        <module>javalin-email-example</module>
+        <module>javalin-heroku-example</module>
+        <module>javalin-html-forms-example</module>
+        <module>javalin-jetty-sessions-example</module>
+        <module>javalin-kotlin-example</module>
+        <!--<module>javalin-openapi-example</module> checked -->
+        <!--<module>javalin-prometheus-example</module> checked -->
+        <module>javalin-realtime-collaboration-example</module>
+        <module>javalin-testing-example</module>
+        <module>javalin-vuejs-example</module>
+        <module>javalin-website-example</module>
+        <module>javalin-websocket-example</module>
+        <module>javalinstagram</module>
+        <module>javalinvue-example/javalinvue2-example</module>
+        <module>javalinvue-example/javalinvue3-example</module>
+    </modules>
+</project>

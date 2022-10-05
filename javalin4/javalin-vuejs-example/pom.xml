@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.javalin</groupId>
-    <artifactId>javalin-vuejs-example</artifactId>
+    <artifactId>javalin4-vuejs-example</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
