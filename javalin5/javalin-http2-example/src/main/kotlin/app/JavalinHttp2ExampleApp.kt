@@ -1,9 +1,8 @@
 package app
 
 import io.javalin.Javalin
+import io.javalin.community.ssl.SSLPlugin
 import io.javalin.http.staticfiles.Location
-import io.javalin.ssl.plugin.SSLPlugin
-
 
 fun main() {
 
