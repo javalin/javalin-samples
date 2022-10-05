@@ -2,7 +2,7 @@ package app;
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
-import io.javalin.ssl.plugin.SSLPlugin;
+import io.javalin.community.ssl.SSLPlugin;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -40,7 +40,7 @@ public class JavalinAsyncExampleApp {
 
         app.get("/async", ctx -> {
             long taskTime = ctx.queryParamAsClass("task-time", Long.class).get();
-            ctx.future(getFuture(taskTime));
+            ctx.future(() -> getFuture(taskTime));
         });
 
         app.get("/blocking", ctx -> {

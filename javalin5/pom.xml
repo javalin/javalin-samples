@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.javalin.samples</groupId>
+    <artifactId>javalin5-samples</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>javalin-async-example</module>
+        <module>javalin-auth-example</module>
+        <!--<module>javalin-cors-example</module>-->
+        <module>javalin-email-example</module>
+        <module>javalin-heroku-example</module>
+        <!--<module>javalin-html-forms-example</module>-->
+        <!-- requires port 80 and port 443 for now, cannot use these on CI -->
+        <!--<module>javalin-http2-example</module>-->
+        <module>javalin-jetty-sessions-example</module>
+        <module>javalin-kotlin-example</module>
+        <!--<module>javalin-modern-java-example</module>-->
+        <!--<module>javalin-openapi-example</module>-->
+        <module>javalin-prometheus-example</module>
+        <module>javalin-realtime-collaboration-example</module>
+        <!--<module>javalin-testing-example</module>-->
+        <module>javalin-vuejs-example</module>
+        <module>javalin-websocket-example</module>
+        <module>javalinstagram</module>
+        <module>javalinvue-example/javalinvue2-example</module>
+        <!--<module>javalinvue-example/javalinvue3-example</module>-->
+    </modules>
+</project>

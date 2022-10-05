@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.javalin</groupId>
+    <groupId>io.javalin.samples.javalin4</groupId>
     <artifactId>javalinstagram</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin-bundle</artifactId>
-            <version>4.6.4</version>
+            <version>4.6.6</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.javalin</groupId>

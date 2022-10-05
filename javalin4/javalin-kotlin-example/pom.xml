@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.javalin</groupId>
-    <artifactId>javalin-kotlin-example</artifactId>
+    <artifactId>javalin4-kotlin-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -16,7 +16,7 @@
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin</artifactId>
-            <version>4.0.0</version>
+            <version>4.6.6</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
