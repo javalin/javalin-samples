@@ -10,19 +10,6 @@
 
     <name>org.example javalin-http2-example</name>
 
-    <repositories>
-        <repository>
-            <id>reposilite-repository-snapshots</id>
-            <name>Reposilite Repository</name>
-            <url>https://maven.reposilite.com/snapshots</url>
-        </repository>
-        <repository>
-            <id>zugazagoitia-repo-snapshots</id>
-            <name>Zugazagoitia Repository</name>
-            <url>https://repo.zugazagoitia.com/snapshots</url>
-        </repository>
-    </repositories>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.7.10</kotlin.version>
@@ -37,9 +24,9 @@
             <version>5.0.1</version>
         </dependency>
         <dependency>
-            <groupId>io.javalin</groupId>
-            <artifactId>javalin-ssl</artifactId>
-            <version>5.0.0-SNAPSHOT</version>
+            <groupId>io.javalin.community.ssl</groupId>
+            <artifactId>ssl-plugin</artifactId>
+            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
