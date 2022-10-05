@@ -14,7 +14,8 @@
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
         <!--<module>javalin-html-forms-example</module>-->
-        <module>javalin-http2-example</module>
+        <!-- javalin-ssl-plugin is not yet on maven central -->
+        <!--<module>javalin-http2-example</module>-->
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
         <!--<module>javalin-modern-java-example</module>-->
