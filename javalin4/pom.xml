@@ -18,7 +18,8 @@
         <!--<module>javalin-openapi-example</module> checked -->
         <!--<module>javalin-prometheus-example</module> checked -->
         <module>javalin-realtime-collaboration-example</module>
-        <module>javalin-testing-example</module>
+        <!-- flaky due to Byte buddy version -->
+        <!--<module>javalin-testing-example</module>-->
         <module>javalin-vuejs-example</module>
         <module>javalin-website-example</module>
         <module>javalin-websocket-example</module>
