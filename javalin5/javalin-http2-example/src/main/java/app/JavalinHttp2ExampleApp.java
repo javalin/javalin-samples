@@ -9,9 +9,13 @@ public class JavalinHttp2ExampleApp {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(config -> {
+
             config.plugins.register(new SSLPlugin(sslConfig -> {
-                sslConfig.keystoreFromClasspath("keystore.jks", "password");
+                sslConfig.keystoreFromClasspath("keystore.jks", "password"); // The ssl plugin will enable HTTP/2 by default
+                sslConfig.insecurePort = 8080;
+                sslConfig.securePort = 8443;
             }));
+
             config.staticFiles.add("/public", Location.CLASSPATH);
         }).start();
 

@@ -14,8 +14,7 @@
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
         <!--<module>javalin-html-forms-example</module>-->
-        <!-- requires port 80 and port 443 for now, cannot use these on CI -->
-        <!--<module>javalin-http2-example</module>-->
+        <module>javalin-http2-example</module>
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
         <!--<module>javalin-modern-java-example</module>-->

@@ -9,6 +9,8 @@ fun main() {
     val app = Javalin.create {
         it.plugins.register(SSLPlugin {
             it.keystoreFromClasspath("keystore.jks", "password")
+            it.insecurePort = 8080
+            it.securePort = 8443
         })
         it.staticFiles.add("/public", Location.CLASSPATH)
     }.start()
