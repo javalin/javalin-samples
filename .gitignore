@@ -18,3 +18,5 @@ buildNumber.properties
 .factorypath
 
 javalinstagram.db
+# javalin-html-forms-example
+upload/

@@ -12,10 +12,10 @@
     <modules>
         <module>javalin-async-example</module>
         <module>javalin-auth-example</module>
-        <!--<module>javalin-cors-example</module>-->
+        <module>javalin-cors-example</module>
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
-        <!--<module>javalin-html-forms-example</module>-->
+        <module>javalin-html-forms-example</module>
         <module>javalin-http2-example</module>
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
@@ -28,6 +28,6 @@
         <module>javalin-websocket-example</module>
         <module>javalinstagram</module>
         <module>javalinvue-example/javalinvue2-example</module>
-        <!--<module>javalinvue-example/javalinvue3-example</module>-->
+        <module>javalinvue-example/javalinvue3-example</module>
     </modules>
 </project>

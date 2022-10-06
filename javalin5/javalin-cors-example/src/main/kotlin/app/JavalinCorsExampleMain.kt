@@ -4,9 +4,13 @@ import io.javalin.Javalin
 
 fun main() {
 
-    Javalin.create {
-        it.plugins.enableCorsForAllOrigins()
-        it.plugins.enableDevLogging()
+    Javalin.create { config ->
+        config.plugins.enableCors { cors ->
+            cors.add {
+                it.anyHost()
+            }
+        }
+        config.plugins.enableDevLogging()
     }.get("/") { ctx ->
         ctx.result("Message from server on port 7070")
     }.start(7070)

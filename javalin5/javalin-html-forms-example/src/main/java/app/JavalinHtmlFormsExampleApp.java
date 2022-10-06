@@ -1,3 +1,5 @@
+package app;
+
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import io.javalin.util.FileUtil;
@@ -28,7 +30,7 @@ public class JavalinHtmlFormsExampleApp {
 
         app.post("/upload-example", ctx -> {
             ctx.uploadedFiles("files").forEach(file -> {
-                FileUtil.streamToFile(file.getContent(), "upload/" + file.getFilename());
+                FileUtil.streamToFile(file.content(), "upload/" + file.filename());
             });
             ctx.html("Upload successful");
         });
