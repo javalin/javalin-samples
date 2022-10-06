@@ -12,7 +12,7 @@
     <modules>
         <module>javalin-async-example</module>
         <module>javalin-auth-example</module>
-        <!--<module>javalin-cors-example</module>-->
+        <module>javalin-cors-example</module>
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
         <!--<module>javalin-html-forms-example</module>-->
