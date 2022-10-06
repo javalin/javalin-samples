@@ -3,12 +3,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.javalin</groupId>
+    <groupId>io.javalin.samples.javalin5</groupId>
     <artifactId>javalin-vuejs-example</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>io.javalin javalin-vuejs-example</name>
+    <name>Javalin 5 ${artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

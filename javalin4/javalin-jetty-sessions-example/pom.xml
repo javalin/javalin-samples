@@ -3,12 +3,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.javalin</groupId>
-    <artifactId>javalin4-jetty-sessions-example</artifactId>
+    <groupId>io.javalin.samples.javalin4</groupId>
+    <artifactId>javalin-jetty-sessions-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>io.javalin javalin-jetty-sessions-example</name>
+    <name>Javalin 4 ${artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
