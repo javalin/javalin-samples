@@ -148,7 +148,7 @@
                         </goals>
                         <configuration>
                             <generatorName>kotlin</generatorName>
-                            <inputSpec>${project.basedir}/src/main/resources/api.json</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/openapi.json</inputSpec>
                             <configOptions>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                             </configOptions>
