@@ -43,7 +43,7 @@ class HelloTest {
     fun `test if server supports http2`() {
         main()
 
-        val response = client.newCall(Request.Builder().url("https://localhost:443/").build()).execute()
+        val response = client.newCall(Request.Builder().url("https://localhost:8443/").build()).execute()
         assertEquals(200, response.code)
         assertEquals(Protocol.HTTP_2, response.protocol)
     }
