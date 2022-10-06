@@ -28,6 +28,6 @@
         <module>javalin-websocket-example</module>
         <module>javalinstagram</module>
         <module>javalinvue-example/javalinvue2-example</module>
-        <!--<module>javalinvue-example/javalinvue3-example</module>-->
+        <module>javalinvue-example/javalinvue3-example</module>
     </modules>
 </project>
