@@ -4,9 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.javalin</groupId>
+    <groupId>io.javalin.samples.javalin5</groupId>
     <artifactId>javalin-websocket-example</artifactId>
     <version>1.0</version>
+
+    <name>Javalin 5 ${artifactId}</name>
 
     <dependencies>
         <dependency>
