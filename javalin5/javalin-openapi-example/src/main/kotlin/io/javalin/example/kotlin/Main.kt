@@ -1,20 +1,35 @@
 package io.javalin.example.kotlin
 
-import cc.vileda.openapi.dsl.info
-import cc.vileda.openapi.dsl.openapiDsl
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
 import io.javalin.example.kotlin.user.UserController
-import io.javalin.plugin.openapi.OpenApiOptions
-import io.javalin.plugin.openapi.OpenApiPlugin
-import io.javalin.plugin.openapi.ui.ReDocOptions
-import io.javalin.plugin.openapi.ui.SwaggerOptions
+import io.javalin.openapi.plugin.OpenApiConfiguration
+import io.javalin.openapi.plugin.OpenApiPlugin
+import io.javalin.openapi.plugin.redoc.ReDocConfiguration
+import io.javalin.openapi.plugin.redoc.ReDocPlugin
+import io.javalin.openapi.plugin.swagger.SwaggerConfiguration
+import io.javalin.openapi.plugin.swagger.SwaggerPlugin
 
 fun main() {
 
-    Javalin.create {
-        it.registerPlugin(getConfiguredOpenApiPlugin())
-        it.defaultContentType = "application/json"
+    Javalin.create { config ->
+        val deprecatedDocsPath = "/swagger-docs"
+
+        val openApiConfiguration = OpenApiConfiguration()
+        openApiConfiguration.info.title = "AwesomeApp"
+        openApiConfiguration.documentationPath = deprecatedDocsPath // by default it's /openapi
+
+        config.plugins.register(OpenApiPlugin(openApiConfiguration))
+
+        val swaggerConfiguration = SwaggerConfiguration()
+        swaggerConfiguration.uiPath = "/swagger-ui" // by default it's /swagger
+        swaggerConfiguration.documentationPath = deprecatedDocsPath
+        config.plugins.register(SwaggerPlugin(swaggerConfiguration))
+
+        val reDocConfiguration = ReDocConfiguration()
+        reDocConfiguration.uiPath = "/redoc" // redundant, by default it's /redoc
+        reDocConfiguration.documentationPath = deprecatedDocsPath
+        config.plugins.register(ReDocPlugin(reDocConfiguration))
     }.routes {
         path("users") {
             get(UserController::getAll)
@@ -31,23 +46,3 @@ fun main() {
     println("Check out Swagger UI docs at http://localhost:7001/swagger-ui")
 
 }
-
-fun getConfiguredOpenApiPlugin() = OpenApiPlugin(
-    OpenApiOptions {
-        openapiDsl {
-            info {
-                title = "User API"
-                description = "Demo API with 5 operations"
-                version = "1.0.0"
-            }
-        }
-    }.apply {
-        path("/swagger-docs") // endpoint for OpenAPI json
-        swagger(SwaggerOptions("/swagger-ui")) // endpoint for swagger-ui
-        reDoc(ReDocOptions("/redoc")) // endpoint for redoc
-        defaultDocumentation { doc ->
-            doc.json("500", ErrorResponse::class.java)
-            doc.json("503", ErrorResponse::class.java)
-        }
-    }
-)

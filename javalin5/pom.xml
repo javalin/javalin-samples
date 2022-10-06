@@ -20,7 +20,7 @@
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
         <!--<module>javalin-modern-java-example</module>-->
-        <!--<module>javalin-openapi-example</module>-->
+        <module>javalin-openapi-example</module>
         <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
         <!--<module>javalin-testing-example</module>-->
