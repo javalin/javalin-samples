@@ -22,7 +22,7 @@ public class UserController {
     )
     public static void create(Context ctx) {
         NewUserRequest user = ctx.bodyAsClass(NewUserRequest.class);
-        UserService.save(user.name, user.email);
+        UserService.save(user.getName(), user.getEmail());
         ctx.status(201);
     }
 
@@ -82,7 +82,7 @@ public class UserController {
             throw new NotFoundResponse("User not found");
         } else {
             NewUserRequest newUser = ctx.bodyAsClass(NewUserRequest.class);
-            UserService.update(user.id, newUser.name, newUser.email);
+            UserService.update(user.getId(), newUser.getName(), newUser.getEmail());
             ctx.status(204);
         }
     }
@@ -105,7 +105,7 @@ public class UserController {
         if (user == null) {
             throw new NotFoundResponse("User not found");
         } else {
-            UserService.delete(user.id);
+            UserService.delete(user.getId());
             ctx.status(204);
         }
     }

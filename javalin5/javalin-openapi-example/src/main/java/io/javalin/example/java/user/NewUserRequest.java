@@ -1,8 +1,9 @@
 package io.javalin.example.java.user;
 
 public class NewUserRequest {
-    public String name;
-    public String email;
+
+    private String name;
+    private String email;
 
     public NewUserRequest() {
     }
@@ -11,4 +12,13 @@ public class NewUserRequest {
         this.name = name;
         this.email = email;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
 }
