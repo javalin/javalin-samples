@@ -8,7 +8,7 @@
     <artifactId>javalin-email-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Javalin 4 ${artifactId}</name>
+    <name>Javalin 4 ${project.artifactId}</name>
 
     <dependencies>
         <dependency>
