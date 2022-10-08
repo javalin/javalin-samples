@@ -13,23 +13,11 @@ import io.javalin.openapi.plugin.swagger.SwaggerPlugin
 fun main() {
 
     Javalin.create { config ->
-        val deprecatedDocsPath = "/swagger-docs"
-
-        val openApiConfiguration = OpenApiConfiguration()
-        openApiConfiguration.info.title = "AwesomeApp"
-        openApiConfiguration.documentationPath = deprecatedDocsPath // by default it's /openapi
-
-        config.plugins.register(OpenApiPlugin(openApiConfiguration))
-
-        val swaggerConfiguration = SwaggerConfiguration()
-        swaggerConfiguration.uiPath = "/swagger-ui" // by default it's /swagger
-        swaggerConfiguration.documentationPath = deprecatedDocsPath
-        config.plugins.register(SwaggerPlugin(swaggerConfiguration))
-
-        val reDocConfiguration = ReDocConfiguration()
-        reDocConfiguration.uiPath = "/redoc" // redundant, by default it's /redoc
-        reDocConfiguration.documentationPath = deprecatedDocsPath
-        config.plugins.register(ReDocPlugin(reDocConfiguration))
+        config.plugins.register(OpenApiPlugin(OpenApiConfiguration().apply {
+            info.title = "Javalin OpenAIP example"
+        }))
+        config.plugins.register(SwaggerPlugin(SwaggerConfiguration()))
+        config.plugins.register(ReDocPlugin(ReDocConfiguration()))
     }.routes {
         path("users") {
             get(UserController::getAll)
@@ -43,6 +31,6 @@ fun main() {
     }.start(7001)
 
     println("Check out ReDoc docs at http://localhost:7001/redoc")
-    println("Check out Swagger UI docs at http://localhost:7001/swagger-ui")
+    println("Check out Swagger UI docs at http://localhost:7001/swagger")
 
 }

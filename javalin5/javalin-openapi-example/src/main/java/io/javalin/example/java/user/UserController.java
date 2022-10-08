@@ -9,16 +9,16 @@ import io.javalin.openapi.*;
 public class UserController {
 
     @OpenApi(
-            summary = "Create user",
-            operationId = "createUser",
-            path = "/users",
-            methods = HttpMethod.POST,
-            tags = {"User"},
-            requestBody = @OpenApiRequestBody(content = {@OpenApiContent(from = NewUserRequest.class)}),
-            responses = {
-                    @OpenApiResponse(status = "201"),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
+        summary = "Create user",
+        operationId = "createUser",
+        path = "/users",
+        methods = HttpMethod.POST,
+        tags = {"User"},
+        requestBody = @OpenApiRequestBody(content = {@OpenApiContent(from = NewUserRequest.class)}),
+        responses = {
+            @OpenApiResponse(status = "201"),
+            @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)})
+        }
     )
     public static void create(Context ctx) {
         NewUserRequest user = ctx.bodyAsClass(NewUserRequest.class);
@@ -27,31 +27,31 @@ public class UserController {
     }
 
     @OpenApi(
-            summary = "Get all users",
-            operationId = "getAllUsers",
-            path = "/users",
-            methods = HttpMethod.GET,
-            tags = {"User"},
-            responses = {
-                    @OpenApiResponse(status = "200", content = {@OpenApiContent(from = User[].class)})
-            }
+        summary = "Get all users",
+        operationId = "getAllUsers",
+        path = "/users",
+        methods = HttpMethod.GET,
+        tags = {"User"},
+        responses = {
+            @OpenApiResponse(status = "200", content = {@OpenApiContent(from = User[].class)})
+        }
     )
     public static void getAll(Context ctx) {
         ctx.json(UserService.getAll());
     }
 
     @OpenApi(
-            summary = "Get user by ID",
-            operationId = "getUserById",
-            path = "/users/:userId",
-            methods = HttpMethod.GET,
-            pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
-            tags = {"User"},
-            responses = {
-                    @OpenApiResponse(status = "200", content = {@OpenApiContent(from = User.class)}),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
-                    @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
+        summary = "Get user by ID",
+        operationId = "getUserById",
+        path = "/users/:userId",
+        methods = HttpMethod.GET,
+        pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
+        tags = {"User"},
+        responses = {
+            @OpenApiResponse(status = "200", content = {@OpenApiContent(from = User.class)}),
+            @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
+            @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
+        }
     )
     public static void getOne(Context ctx) {
         User user = UserService.findById(validPathParamUserId(ctx));
@@ -63,18 +63,18 @@ public class UserController {
     }
 
     @OpenApi(
-            summary = "Update user by ID",
-            operationId = "updateUserById",
-            path = "/users/:userId",
-            methods = HttpMethod.PATCH,
-            pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
-            tags = {"User"},
-            requestBody = @OpenApiRequestBody(content = {@OpenApiContent(from = NewUserRequest.class)}),
-            responses = {
-                    @OpenApiResponse(status = "204"),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
-                    @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
+        summary = "Update user by ID",
+        operationId = "updateUserById",
+        path = "/users/:userId",
+        methods = HttpMethod.PATCH,
+        pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
+        tags = {"User"},
+        requestBody = @OpenApiRequestBody(content = {@OpenApiContent(from = NewUserRequest.class)}),
+        responses = {
+            @OpenApiResponse(status = "204"),
+            @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
+            @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
+        }
     )
     public static void update(Context ctx) {
         User user = UserService.findById(validPathParamUserId(ctx));
@@ -88,17 +88,17 @@ public class UserController {
     }
 
     @OpenApi(
-            summary = "Delete user by ID",
-            operationId = "deleteUserById",
-            path = "/users/:userId",
-            methods = HttpMethod.DELETE,
-            pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
-            tags = {"User"},
-            responses = {
-                    @OpenApiResponse(status = "204"),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
-                    @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
+        summary = "Delete user by ID",
+        operationId = "deleteUserById",
+        path = "/users/:userId",
+        methods = HttpMethod.DELETE,
+        pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
+        tags = {"User"},
+        responses = {
+            @OpenApiResponse(status = "204"),
+            @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
+            @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
+        }
     )
     public static void delete(Context ctx) {
         User user = UserService.findById(validPathParamUserId(ctx));

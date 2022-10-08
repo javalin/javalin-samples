@@ -15,22 +15,11 @@ public class Main {
 
     public static void main(String[] args) {
         Javalin.create(config -> {
-            String deprecatedDocsPath = "/swagger-docs";
-
             OpenApiConfiguration openApiConfiguration = new OpenApiConfiguration();
-            openApiConfiguration.getInfo().setTitle("AwesomeApp");
-            openApiConfiguration.setDocumentationPath(deprecatedDocsPath); // by default it's /openapi
+            openApiConfiguration.getInfo().setTitle("Javalin OpenAPI example");
             config.plugins.register(new OpenApiPlugin(openApiConfiguration));
-
-            SwaggerConfiguration swaggerConfiguration = new SwaggerConfiguration();
-            swaggerConfiguration.setUiPath("/swagger-ui"); // by default it's /swagger
-            swaggerConfiguration.setDocumentationPath(deprecatedDocsPath);
-            config.plugins.register(new SwaggerPlugin(swaggerConfiguration));
-
-            ReDocConfiguration reDocConfiguration = new ReDocConfiguration();
-            reDocConfiguration.setUiPath("/redoc"); // redundant, by default it's /redoc
-            reDocConfiguration.setDocumentationPath(deprecatedDocsPath);
-            config.plugins.register(new ReDocPlugin(reDocConfiguration));
+            config.plugins.register(new SwaggerPlugin(new SwaggerConfiguration()));
+            config.plugins.register(new ReDocPlugin(new ReDocConfiguration()));
         }).routes(() -> {
             path("users", () -> {
                 get(UserController::getAll);

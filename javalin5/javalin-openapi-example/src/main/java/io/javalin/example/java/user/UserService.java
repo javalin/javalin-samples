@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-// This is a service, it should be independent from Javalin
+// This is a service, it should be independent of Javalin
 public class UserService {
 
     private static Map<Integer, User> users = new HashMap<>();
