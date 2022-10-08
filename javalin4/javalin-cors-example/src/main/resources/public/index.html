@@ -7,7 +7,7 @@
         <div id="output">fetching...</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
         <script>
-            axios.get('http://localhost:80').then(response => {
+            axios.get('http://localhost:8080').then(response => {
                 document.getElementById("output").innerHTML = JSON.stringify(response.data);
             });
         </script>

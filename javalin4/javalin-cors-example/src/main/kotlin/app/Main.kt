@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
             put("contact", "admin@domain.com")
         }
         ctx.result(res.toString()).contentType("application/json")
-    }.start(80)
+    }.start(8080)
 
     Javalin.create {
         it.addStaticFiles("/public", Location.CLASSPATH)
