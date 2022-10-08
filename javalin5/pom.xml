@@ -22,7 +22,7 @@
         <module>javalin-openapi-example</module>
         <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
-        <!--<module>javalin-testing-example</module>-->
+        <module>javalin-testing-example</module>
         <module>javalin-vuejs-example</module>
         <module>javalin-websocket-example</module>
         <module>javalinstagram</module>
