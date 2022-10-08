@@ -1,5 +1,4 @@
 import com.mashape.unirest.http.Unirest
-import com.sun.media.jfxmedia.logging.Logger
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.prometheus.client.exporter.HTTPServer

@@ -18,7 +18,7 @@
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
         <!--<module>javalin-openapi-example</module> checked -->
-        <!--<module>javalin-prometheus-example</module> checked -->
+        <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
         <!-- flaky due to Byte buddy version -->
         <!--<module>javalin-testing-example</module>-->
