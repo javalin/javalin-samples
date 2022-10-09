@@ -11,17 +11,16 @@
 
     <modules>
         <module>javalin-async-example</module>
-        <!--<module>javalin-cors-example</module> checked-->
+        <module>javalin-cors-example</module>
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
         <module>javalin-html-forms-example</module>
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
-        <!--<module>javalin-openapi-example</module> checked -->
-        <!--<module>javalin-prometheus-example</module> checked -->
+        <module>javalin-openapi-example</module>
+        <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
-        <!-- flaky due to Byte buddy version -->
-        <!--<module>javalin-testing-example</module>-->
+        <module>javalin-testing-example</module>
         <module>javalin-vuejs-example</module>
         <module>javalin-website-example</module>
         <module>javalin-websocket-example</module>

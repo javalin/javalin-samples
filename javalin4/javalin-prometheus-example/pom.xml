@@ -8,10 +8,10 @@
     <artifactId>javalin-prometheus-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Javalin 4 ${artifactId}</name>
+    <name>Javalin 4 ${project.artifactId}</name>
 
     <properties>
-        <kotlin.version>1.5.20</kotlin.version>
+        <kotlin.version>1.5.32</kotlin.version>
     </properties>
 
     <dependencies>
@@ -21,14 +21,20 @@
             <version>4.6.6</version>
         </dependency>
         <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.32</version>
+            <version>1.7.36</version>
         </dependency>
         <dependency>
             <groupId>io.prometheus</groupId>
             <artifactId>simpleclient_httpserver</artifactId>
-            <version>0.11.0</version>
+            <version>0.16.0</version>
         </dependency>
         <dependency>
             <groupId>com.mashape.unirest</groupId>
@@ -72,6 +78,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <executions>
                     <execution>
                         <id>compile</id>

@@ -19,15 +19,26 @@
         <module>javalin-http2-example</module>
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
-        <!--<module>javalin-modern-java-example</module>-->
         <module>javalin-openapi-example</module>
         <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
-        <!--<module>javalin-testing-example</module>-->
+        <module>javalin-testing-example</module>
         <module>javalin-vuejs-example</module>
         <module>javalin-websocket-example</module>
         <module>javalinstagram</module>
         <module>javalinvue-example/javalinvue2-example</module>
         <module>javalinvue-example/javalinvue3-example</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>modern-java</id>
+            <activation>
+                <jdk>[19,)</jdk>
+            </activation>
+            <modules>
+                <module>javalin-modern-java-example</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

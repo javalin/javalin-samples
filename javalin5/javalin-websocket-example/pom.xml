@@ -8,7 +8,7 @@
     <artifactId>javalin-websocket-example</artifactId>
     <version>1.0</version>
 
-    <name>Javalin 5 ${artifactId}</name>
+    <name>Javalin 5 ${project.artifactId}</name>
 
     <dependencies>
         <dependency>
