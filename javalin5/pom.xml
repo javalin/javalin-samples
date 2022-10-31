@@ -28,6 +28,7 @@
         <module>javalinstagram</module>
         <module>javalinvue-example/javalinvue2-example</module>
         <module>javalinvue-example/javalinvue3-example</module>
+        <module>javalin-docker-example</module>
     </modules>
 
     <profiles>
