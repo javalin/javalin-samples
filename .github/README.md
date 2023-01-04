@@ -8,7 +8,7 @@
 * [:heart: Sponsor Javalin](https://github.com/sponsors/tipsy)
 * The main project webpage is [javalin.io](https://javalin.io)
 * Chat on Discord: <https://discord.gg/sgak4e5NKv>
-* License summary: <https://tldrlegal.com/license/apache-license-2.0-(apache-2.0>)
+* License summary: <https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)>
 
 ## Javalin Samples
 
@@ -17,23 +17,6 @@ This repository contains a collection of sample projects for Javalin. The sample
 ### Index
 
 
-* Javalin4 Examples
-  * [Async Example](/javalin4/javalin-async-example)
-  * [CORS Example](/javalin4/javalin-cors-example)
-  * [Email Example](/javalin4/javalin-email-example)
-  * [Heroku Example](/javalin4/javalin-heroku-example)
-  * [HTML Forms Example](/javalin4/javalin-html-forms-example)
-  * [Jetty Sessions Example](/javalin4/javalin-jetty-sessions-example)
-  * [Kotlin Example](/javalin4/javalin-kotlin-example)
-  * [OpenAPI Example](/javalin4/javalin-openapi-example)
-  * [Prometheus Example](/javalin4/javalin-prometheus-example)
-  * [Realtime Collaboration Example](/javalin4/javalin-realtime-collaboration-example)
-  * [Javalinstagram](/javalin4/javalinstagram)
-  * [Testing Example](/javalin4/javalin-testing-example)
-  * [Vue Example](/javalin4/javalinvue-example)
-  * [VueJS Example](/javalin4/javalin-vuejs-example)
-  * [Website Example](/javalin4/javalin-website-example)
-  * [WebSocket Example](/javalin4/javalin-websocket-example)
 * Javalin5 Examples
   * [Async Example](/javalin5/javalin-async-example)
   * [Auth Example](/javalin5/javalin-auth-example)
@@ -55,3 +38,20 @@ This repository contains a collection of sample projects for Javalin. The sample
   * [Vue Example](/javalin5/javalinvue-example)
   * [VueJS Example](/javalin5/javalin-vuejs-example)
   * [WebSocket Example](/javalin5/javalin-websocket-example)
+* Javalin4 Examples
+  * [Async Example](/javalin4/javalin-async-example)
+  * [CORS Example](/javalin4/javalin-cors-example)
+  * [Email Example](/javalin4/javalin-email-example)
+  * [Heroku Example](/javalin4/javalin-heroku-example)
+  * [HTML Forms Example](/javalin4/javalin-html-forms-example)
+  * [Jetty Sessions Example](/javalin4/javalin-jetty-sessions-example)
+  * [Kotlin Example](/javalin4/javalin-kotlin-example)
+  * [OpenAPI Example](/javalin4/javalin-openapi-example)
+  * [Prometheus Example](/javalin4/javalin-prometheus-example)
+  * [Realtime Collaboration Example](/javalin4/javalin-realtime-collaboration-example)
+  * [Javalinstagram](/javalin4/javalinstagram)
+  * [Testing Example](/javalin4/javalin-testing-example)
+  * [Vue Example](/javalin4/javalinvue-example)
+  * [VueJS Example](/javalin4/javalin-vuejs-example)
+  * [Website Example](/javalin4/javalin-website-example)
+  * [WebSocket Example](/javalin4/javalin-websocket-example)
