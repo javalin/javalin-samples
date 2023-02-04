@@ -40,6 +40,7 @@ This repository contains a collection of sample projects for Javalin. The sample
   * [WebSocket Example](/javalin5/javalin-websocket-example)
 * Javalin4 Examples
   * [Async Example](/javalin4/javalin-async-example)
+  * [Bucket4j Example](/javalin4/javalin-bucket4j-example)
   * [CORS Example](/javalin4/javalin-cors-example)
   * [Email Example](/javalin4/javalin-email-example)
   * [Heroku Example](/javalin4/javalin-heroku-example)
