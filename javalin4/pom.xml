@@ -11,6 +11,7 @@
 
     <modules>
         <module>javalin-async-example</module>
+        <module>javalin-bucket4j-example</module>
         <module>javalin-cors-example</module>
         <module>javalin-email-example</module>
         <module>javalin-heroku-example</module>
