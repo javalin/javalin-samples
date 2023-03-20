@@ -24,6 +24,7 @@ This repository contains a collection of sample projects for Javalin. The sample
   * [Docker Example](/javalin5/javalin-docker-example)
   * [Email Example](/javalin5/javalin-email-example)
   * [GraalVM Example](/javalin5/javalin-graalvm-example)
+  * [Gradle Shadow Jar Example](/javalin5/javalin-gradle-shadowjar-example)
   * [Heroku Example](/javalin5/javalin-heroku-example)
   * [HTML Forms Example](/javalin5/javalin-html-forms-example)
   * [HTTP2 Example](/javalin5/javalin-http2-example)

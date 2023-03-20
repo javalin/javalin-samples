@@ -21,7 +21,6 @@
         <module>javalin-openapi-example</module>
         <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
-        <module>javalin-testing-example</module>
         <module>javalin-vuejs-example</module>
         <module>javalin-website-example</module>
         <module>javalin-websocket-example</module>
@@ -29,4 +28,18 @@
         <module>javalinvue-example/javalinvue2-example</module>
         <module>javalinvue-example/javalinvue3-example</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>at-least-java-11</id>
+            <activation>
+                <jdk>[11,)</jdk>
+            </activation>
+            <modules>
+                <!-- required by newer Chrome versions combined with newer Selenium versions -->
+                <!-- See also https://stackoverflow.com/a/75741758 -->
+                <module>javalin-testing-example</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

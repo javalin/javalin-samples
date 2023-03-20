@@ -14,6 +14,7 @@ class EndToEndTest {
 
     @Test
     fun `UI contains correct heading`() = JavalinTest.test(app) { server, client ->
+        System.setProperty("webdriver.http.factory", "jdk-http-client")
         WebDriverManager.chromedriver().setup()
         val driver: WebDriver = ChromeDriver(ChromeOptions().apply {
             addArguments("--headless")
