@@ -16,6 +16,7 @@ public class EndToEndTest {
 
     @Test
     public void UI_contains_correct_heading() {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
         TestUtil.test(app, (server, client) -> {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
