@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.javalin.samples</groupId>
+    <artifactId>javalin6-samples</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Javalin 6 samples</name>
+
+    <modules>
+<!--        <module>javalin-async-example</module>--> <!-- TODO: ADD -->
+        <module>javalin-auth-example</module>
+        <module>javalin-cors-example</module>
+        <module>javalin-email-example</module>
+        <module>javalin-heroku-example</module>
+        <module>javalin-html-forms-example</module>
+<!--        <module>javalin-http2-example</module>--> <!-- TODO: ADD -->
+        <module>javalin-jetty-sessions-example</module>
+        <module>javalin-kotlin-example</module>
+<!--        <module>javalin-openapi-example</module>--> <!-- TODO: ADD -->
+        <module>javalin-prometheus-example</module>
+        <module>javalin-realtime-collaboration-example</module>
+        <module>javalin-testing-example</module>
+        <module>javalin-vuejs-example</module>
+        <module>javalin-websocket-example</module>
+        <module>javalinstagram</module>
+        <module>javalinvue-example/javalinvue2-example</module>
+        <module>javalinvue-example/javalinvue3-example</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>modern-java</id>
+            <activation>
+                <jdk>[19,)</jdk>
+            </activation>
+            <modules>
+                <module>javalin-modern-java-example</module>
+            </modules>
+        </profile>
+    </profiles>
+</project>
