@@ -1,7 +1,6 @@
 package org.example;
 
 import io.javalin.Javalin;
-import io.javalin.validation.JavalinValidation;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -17,9 +16,9 @@ public class ModernJavaApp {
 
         // We want to accept a String URI from a user, so we need to inform Javalin of how to convert the
         // user provided String into an actual URI. We can use HttpRequest.Builder for validation.
-        JavalinValidation.register(URI.class, s -> HttpRequest.newBuilder().uri(URI.create(s)).build().uri());
 
         var app = Javalin.create(javalinConfig -> {
+            javalinConfig.validation.register(URI.class, s -> HttpRequest.newBuilder().uri(URI.create(s)).build().uri());
             javalinConfig.http.asyncTimeout = 10_000;
             javalinConfig.router.mount(router -> {
                 router.get("/async-proxy/<url>", ctx -> {
