@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javalin Async Example</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css">
+    </head>
+    <body style="max-width:560px;margin:80px auto">
+        <main id="vue-app">
+            <h1>Async vs Blocking</h1>
+            <p>
+                The server is configured with a ThreadPool of 10 threads.
+                Play around with the number of requests and task time to see the effect of async vs blocking.
+                <br>
+                <em>
+                    <small>
+                    Note: A browser isn't a benchmarking tool, too many requests will yield inaccurate results. <br>
+                    In chrome, keeping the console tab open will increase performance for some reason...
+                    </small>
+                </em>
+            </p>
+            <div class="uk-margin">
+                <label class="uk-form-label">Task time in milliseconds</label>
+                <input v-model="taskTime" :disabled="isBusy" class="uk-input" placeholder="500">
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label">Number of requests</label>
+                <input v-model="numberOfRequests" :disabled="isBusy" class="uk-input" placeholder="Number of requests" maxlength="3">
+            </div>
+            <button :disabled="isBusy" @click="performRequests('async')" class="uk-button uk-button-primary">Run async</button>
+            <button :disabled="isBusy" @click="performRequests('blocking')" class="uk-button uk-button-primary">Run blocking</button>
+
+            <template v-if="results.length > 0 || isBusy">
+                <h3>{{remainingRequests}} requests remaining</h3>
+                <h4>Results</h4>
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                        <tr>
+                            <td>Task time (ms)</td>
+                            <td>Number of requests</td>
+                            <td>Mode</td>
+                            <td>Time</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="result in results">
+                            <td>{{ result.taskTime }}</td>
+                            <td>{{ result.numberOfRequests }}</td>
+                            <td>{{ result.mode }}</td>
+                            <td>{{ Math.round(result.time) }}ms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+        </main>
+        <script>
+            new Vue({
+                el: "#vue-app",
+                data: {
+                    numberOfRequests: 100,
+                    remainingRequests: 0,
+                    taskTime: 500,
+                    isBusy: false,
+                    results: [],
+                },
+                methods: {
+                    performRequests(mode) {
+                        this.isBusy = true;
+                        this.remainingRequests = this.numberOfRequests;
+                        const start = window.performance.now();
+                        let handleRequestFinish = () => {
+                            this.remainingRequests--;
+                            if (this.remainingRequests === 0) {
+                                this.results.unshift({
+                                    time: window.performance.now() - start,
+                                    numberOfRequests: this.numberOfRequests,
+                                    mode: mode,
+                                    taskTime: this.taskTime
+                                });
+                                this.isBusy = false;
+                            }
+                        };
+                        let url = window.location.origin + "/" + mode + "?task-time=" + this.taskTime;
+                        for (let i = 0; i < this.numberOfRequests; i++) {
+                            fetch(url).then(handleRequestFinish);
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
