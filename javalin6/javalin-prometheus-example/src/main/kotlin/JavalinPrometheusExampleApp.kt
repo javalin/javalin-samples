@@ -12,11 +12,10 @@ fun main() {
     val statisticsHandler = StatisticsHandler()
     val queuedThreadPool = QueuedThreadPool(200, 8, 60_000)
 
-    val app = Javalin.create {
-        it.pvt.server = Server(queuedThreadPool).apply {
-            handler = statisticsHandler
-        }
-        it.router.apiBuilder {
+    val app = Javalin.create { config ->
+        config.jetty.threadPool = queuedThreadPool
+        config.jetty.modifyServer{ server -> server.handler = statisticsHandler}
+        config.router.apiBuilder {
             get("/1") { ctx -> ctx.result("Hello World") }
             get("/2") { ctx ->
                 Thread.sleep((Math.random() * 2000).toLong())
