@@ -7,7 +7,7 @@ import static app.SessionUtil.fileSessionHandler;
 public class JavalinJettySessionExampleApp {
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create(config -> {
+        var app = Javalin.create(config -> {
             config.jetty.modifyServletContextHandler(handler -> handler.setSessionHandler(fileSessionHandler()));
             config.bundledPlugins.enableRouteOverview("/");
         }).start(7070);
