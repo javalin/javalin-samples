@@ -19,7 +19,7 @@
         <module>javalin-http2-example</module>
         <module>javalin-jetty-sessions-example</module>
         <module>javalin-kotlin-example</module>
-<!--        <module>javalin-openapi-example</module>--> <!-- TODO: ADD -->
+        <module>javalin-openapi-example</module>
         <module>javalin-prometheus-example</module>
         <module>javalin-realtime-collaboration-example</module>
         <module>javalin-testing-example</module>
