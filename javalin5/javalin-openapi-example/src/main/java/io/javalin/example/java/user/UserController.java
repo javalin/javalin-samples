@@ -43,7 +43,7 @@ public class UserController {
     @OpenApi(
         summary = "Get user by ID",
         operationId = "getUserById",
-        path = "/users/:userId",
+        path = "/users/{userId}",
         methods = HttpMethod.GET,
         pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
         tags = {"User"},
@@ -65,7 +65,7 @@ public class UserController {
     @OpenApi(
         summary = "Update user by ID",
         operationId = "updateUserById",
-        path = "/users/:userId",
+        path = "/users/{userId}",
         methods = HttpMethod.PATCH,
         pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
         tags = {"User"},
@@ -90,7 +90,7 @@ public class UserController {
     @OpenApi(
         summary = "Delete user by ID",
         operationId = "deleteUserById",
-        path = "/users/:userId",
+        path = "/users/{userId}",
         methods = HttpMethod.DELETE,
         pathParams = {@OpenApiParam(name = "userId", type = Integer.class, description = "The user ID")},
         tags = {"User"},
