@@ -1,0 +1,33 @@
+<!-- docs: https://javalin.io/documentation#vue-support -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javalinstagram</title>
+        <link href="/logo.png" rel="icon">
+        <meta charset="utf8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="telephone=no" name="format-detection">
+        <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:300,400,500,700" rel="stylesheet">
+        <link href="/webjars/mdi__font/7.2.96/css/materialdesignicons.css" rel="stylesheet">
+        <link href="/webjars/vuetify/2.7.0/dist/vuetify.min.css" rel="stylesheet">
+        <link rel="preload" href="/logo.png" as="image">
+        <script src="/webjars/momentjs/2.29.3/min/moment.min.js" nonce="@addNonce"></script>
+        <script src="/webjars/axios/1.4.0/dist/axios.min.js" nonce="@addNonce"></script>
+        <script src="/webjars/vue/2.7.14/dist/vue.min.js" nonce="@addNonce"></script>
+        <script src="/webjars/vuetify/2.7.0/dist/vuetify.min.js" nonce="@addNonce"></script>
+        <script nonce="@addNonce">Vue.prototype.$eventBus = new Vue();</script>
+        @componentRegistration
+    </head>
+    <body>
+        <main id="main-vue" v-cloak>
+            @routeComponent
+        </main>
+        <script nonce="@addNonce">
+            const vue = new Vue({
+                el: "#main-vue",
+                vuetify: new Vuetify(),
+            });
+            vue.$vuetify.theme.setTheme("light", {primary: "#bc50a4"});
+        </script>
+    </body>
+</html>
