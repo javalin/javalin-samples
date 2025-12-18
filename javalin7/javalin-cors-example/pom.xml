@@ -3,23 +3,24 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.javalin.samples.javalin6</groupId>
+    <groupId>io.javalin.samples.javalin7</groupId>
     <artifactId>javalin-cors-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Javalin 6 ${project.artifactId}</name>
+    <name>Javalin 7 ${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.9.10</kotlin.version>
+        <kotlin.version>2.2.20</kotlin.version>
+        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin-bundle</artifactId>
-            <version>6.0.0</version>
+            <version>7.0.0-alpha.4</version>
         </dependency>
     </dependencies>
 

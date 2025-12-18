@@ -13,26 +13,22 @@ fun main() {
                 }
             }
         }
-        config.router.mount {
-            it.get("/") { ctx ->
-                ctx.result("Message from server on port 7070")
-            }
+        config.routes.get("/") { ctx ->
+            ctx.result("Message from server on port 7070")
         }
     }.start(7070)
 
-    Javalin.create {
-        it.router.mount {
-            it.get("/") {
-                it.html(
-                    """
+    Javalin.create { config ->
+        config.routes.get("/") { ctx ->
+            ctx.html(
+                """
                 <script>
                     fetch("http://localhost:7070")
                         .then(response => response.text())
                         .then(text => document.write("<h1>" + text + "</h1>"));
                 </script>
                 """.trimIndent()
-                )
-            }
+            )
         }
     }.start(7071)
 
