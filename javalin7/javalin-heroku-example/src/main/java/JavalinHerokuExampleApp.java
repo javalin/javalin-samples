@@ -3,9 +3,9 @@ import io.javalin.Javalin;
 public class JavalinHerokuExampleApp {
 
     public static void main(String[] args) {
-        Javalin.create()
-            .get("/", ctx -> ctx.result("Hello Heroku"))
-            .start(getHerokuAssignedPort());
+        Javalin.create(config -> {
+            config.routes.get("/", ctx -> ctx.result("Hello Heroku"));
+        }).start(getHerokuAssignedPort());
     }
 
     private static int getHerokuAssignedPort() {
