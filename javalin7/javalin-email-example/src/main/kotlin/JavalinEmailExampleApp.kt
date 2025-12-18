@@ -7,7 +7,7 @@ import org.apache.commons.mail.SimpleEmail
 fun main() {
 
     Javalin.create { config ->
-        config.router.apiBuilder {
+        config.routes.apiBuilder {
             get("/") { ctx ->
                 ctx.html(
                     """

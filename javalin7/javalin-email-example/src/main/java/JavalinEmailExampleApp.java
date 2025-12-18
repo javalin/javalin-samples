@@ -16,7 +16,7 @@ public class JavalinEmailExampleApp {
     public static void main(String[] args) {
 
         Javalin.create(config -> {
-            config.router.apiBuilder(() -> {
+            config.routes.apiBuilder(() -> {
                 get("/", ctx -> ctx.html(
                     form().withAction("/contact-us").withMethod("post").with(
                         input().withName("subject").withPlaceholder("Subject"),
