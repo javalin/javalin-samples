@@ -15,6 +15,8 @@
 - javalin-vuejs-example
 - javalin-websocket-example
 - javalinstagram
+- javalinvue-example/javalinvue2-example
+- javalinvue-example/javalinvue3-example
 
 ## Modules Staying on Javalin 6 (Not Migrating)
 - javalin-async-example (fixed SSL plugin import, moved routes to config)
@@ -25,12 +27,6 @@
 ### javalin-openapi-example
 **Status:** Skipped for now
 **Reason:** User requested to skip this module
-
-### javalinvue-example/javalinvue2-example
-**Status:** Not started
-
-### javalinvue-example/javalinvue3-example
-**Status:** Not started
 
 ## Notes
 
