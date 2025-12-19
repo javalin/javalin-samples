@@ -12,6 +12,7 @@
 - javalin-prometheus-example
 - javalin-realtime-collaboration-example
 - javalin-testing-example
+- javalin-vuejs-example
 
 ## Modules Staying on Javalin 6 (Not Migrating)
 - javalin-async-example (fixed SSL plugin import, moved routes to config)
@@ -22,9 +23,6 @@
 ### javalin-openapi-example
 **Status:** Skipped for now
 **Reason:** User requested to skip this module
-
-### javalin-vuejs-example
-**Status:** Not started
 
 ### javalin-websocket-example
 **Status:** Not started

@@ -11,14 +11,12 @@ fun main() {
 
     val app = Javalin.create {
         it.staticFiles.add("/public", Location.CLASSPATH)
-        it.router.mount {
-            it.get("/todos") { ctx ->
-                ctx.json(todos)
-            }
-            it.put("/todos") { ctx ->
-                todos = ctx.bodyAsClass<Array<Todo>>()
-                ctx.status(204)
-            }
+        it.routes.get("/todos") { ctx ->
+            ctx.json(todos)
+        }
+        it.routes.put("/todos") { ctx ->
+            todos = ctx.bodyAsClass<Array<Todo>>()
+            ctx.status(204)
         }
     }.start(7070)
 
