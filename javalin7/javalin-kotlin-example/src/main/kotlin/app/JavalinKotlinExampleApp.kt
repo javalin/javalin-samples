@@ -13,8 +13,8 @@ fun main() {
 
     val userDao = UserDao()
 
-    val app = Javalin.create {
-        it.router.apiBuilder {
+    val app = Javalin.create { config ->
+        config.routes.apiBuilder {
 
             get("/") { it.redirect("/users") } // redirect root to /users
 
@@ -53,9 +53,9 @@ fun main() {
                 ctx.status(204)
             }
         }
-    }.apply {
-        exception(Exception::class.java) { e, ctx -> e.printStackTrace() }
-        error(HttpStatus.NOT_FOUND) { ctx -> ctx.json("not found") }
+
+        config.routes.exception(Exception::class.java) { e, ctx -> e.printStackTrace() }
+        config.routes.error(HttpStatus.NOT_FOUND) { ctx -> ctx.json("not found") }
     }.start(7070)
 
 }
