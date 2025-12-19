@@ -1,14 +1,14 @@
 package app;
 
 import java.io.File;
+import org.eclipse.jetty.ee10.servlet.SessionHandler;
 import org.eclipse.jetty.http.HttpCookie;
 import org.eclipse.jetty.nosql.mongodb.MongoSessionDataStoreFactory;
-import org.eclipse.jetty.server.session.DatabaseAdaptor;
-import org.eclipse.jetty.server.session.DefaultSessionCache;
-import org.eclipse.jetty.server.session.FileSessionDataStore;
-import org.eclipse.jetty.server.session.JDBCSessionDataStoreFactory;
-import org.eclipse.jetty.server.session.SessionCache;
-import org.eclipse.jetty.server.session.SessionHandler;
+import org.eclipse.jetty.session.DatabaseAdaptor;
+import org.eclipse.jetty.session.DefaultSessionCache;
+import org.eclipse.jetty.session.FileSessionDataStore;
+import org.eclipse.jetty.session.JDBCSessionDataStoreFactory;
+import org.eclipse.jetty.session.SessionCache;
 
 public class SessionUtil {
 
