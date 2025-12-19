@@ -7,7 +7,7 @@ import io.javalin.apibuilder.ApiBuilder.post
 class JavalinTestingExampleApp(dependency: String) {
 
     val app = Javalin.create {
-        it.router.apiBuilder {
+        it.routes.apiBuilder {
             get("/users", UserController::getAll)
             post("/users", UserController::create)
             get("/ui") { it.html("<h1>User UI</h1>") }

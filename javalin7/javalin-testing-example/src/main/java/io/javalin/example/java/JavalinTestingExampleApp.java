@@ -10,7 +10,7 @@ public class JavalinTestingExampleApp {
 
     public JavalinTestingExampleApp(String dependency) {
         app = Javalin.create(config -> {
-            config.router.apiBuilder(() -> {
+            config.routes.apiBuilder(() -> {
                 get("/users", UserController::getAll);
                 post("/users", UserController::create);
                 get("/ui", ctx -> ctx.html("<h1>User UI</h1>"));
