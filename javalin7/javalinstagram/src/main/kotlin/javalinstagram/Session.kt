@@ -1,14 +1,14 @@
 package javalinstagram
 
-import org.eclipse.jetty.server.session.DefaultSessionCache
-import org.eclipse.jetty.server.session.FileSessionDataStore
-import org.eclipse.jetty.server.session.SessionHandler
+import org.eclipse.jetty.ee10.servlet.SessionHandler
+import org.eclipse.jetty.session.DefaultSessionCache
+import org.eclipse.jetty.session.FileSessionDataStore
 import java.io.File
 
 object Session {
 
     fun fileSessionHandler() = SessionHandler().apply {
-        httpOnly = true
+        isHttpOnly = true
         sessionCache = DefaultSessionCache(this).apply {
             sessionDataStore = FileSessionDataStore().apply {
                 val baseDir = File(System.getProperty("java.io.tmpdir"))

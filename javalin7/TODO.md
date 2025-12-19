@@ -14,6 +14,7 @@
 - javalin-testing-example
 - javalin-vuejs-example
 - javalin-websocket-example
+- javalinstagram
 
 ## Modules Staying on Javalin 6 (Not Migrating)
 - javalin-async-example (fixed SSL plugin import, moved routes to config)
@@ -24,9 +25,6 @@
 ### javalin-openapi-example
 **Status:** Skipped for now
 **Reason:** User requested to skip this module
-
-### javalinstagram
-**Status:** Not started
 
 ### javalinvue-example/javalinvue2-example
 **Status:** Not started
@@ -43,6 +41,8 @@
 4. **Kotlin Scope Functions:** Use `also` instead of `apply` for nested blocks to access both receiver and outer context
 5. **Java/Kotlin Versions:** Java 17+, Kotlin 2.2.20
 6. **Maven Compiler Plugin:** 3.13.0
+7. **Compression API:** `config.http.brotliAndGzipCompression()` → `config.http.compressionStrategy = CompressionStrategy.GZIP` (import `io.javalin.compression.CompressionStrategy`)
+8. **Vue Plugin:** `config.vue.apply { ... }` → `config.registerPlugin(JavalinVuePlugin { vue -> ... })` (import `io.javalin.plugin.bundled.JavalinVuePlugin`)
 
 ### Jetty 12 Breaking Changes
 
