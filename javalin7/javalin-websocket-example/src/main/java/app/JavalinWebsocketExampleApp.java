@@ -21,21 +21,19 @@ public class JavalinWebsocketExampleApp {
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public", Location.CLASSPATH);
-            config.router.mount(router -> {
-                router.ws("/chat", ws -> {
-                    ws.onConnect(ctx -> {
-                        String username = "User" + nextUserNumber++;
-                        userUsernameMap.put(ctx, username);
-                        broadcastMessage("Server", (username + " joined the chat"));
-                    });
-                    ws.onClose(ctx -> {
-                        String username = userUsernameMap.get(ctx);
-                        userUsernameMap.remove(ctx);
-                        broadcastMessage("Server", (username + " left the chat"));
-                    });
-                    ws.onMessage(ctx -> {
-                        broadcastMessage(userUsernameMap.get(ctx), ctx.message());
-                    });
+            config.routes.ws("/chat", ws -> {
+                ws.onConnect(ctx -> {
+                    String username = "User" + nextUserNumber++;
+                    userUsernameMap.put(ctx, username);
+                    broadcastMessage("Server", (username + " joined the chat"));
+                });
+                ws.onClose(ctx -> {
+                    String username = userUsernameMap.get(ctx);
+                    userUsernameMap.remove(ctx);
+                    broadcastMessage("Server", (username + " left the chat"));
+                });
+                ws.onMessage(ctx -> {
+                    broadcastMessage(userUsernameMap.get(ctx), ctx.message());
                 });
             });
         }).start(7070);

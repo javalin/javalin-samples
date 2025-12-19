@@ -14,21 +14,19 @@ private var nextUserNumber = 1 // Assign to username for next connecting user
 fun main() {
     Javalin.create {
         it.staticFiles.add("/public", Location.CLASSPATH)
-        it.router.mount {
-            it.ws("/chat") { ws ->
-                ws.onConnect { ctx ->
-                    val username = "User" + nextUserNumber++
-                    userUsernameMap[ctx] = username
-                    broadcastMessage("Server", "$username joined the chat")
-                }
-                ws.onClose { ctx ->
-                    val username = userUsernameMap[ctx]
-                    userUsernameMap.remove(ctx)
-                    broadcastMessage("Server", "$username left the chat")
-                }
-                ws.onMessage { ctx ->
-                    broadcastMessage(userUsernameMap[ctx]!!, ctx.message())
-                }
+        it.routes.ws("/chat") { ws ->
+            ws.onConnect { ctx ->
+                val username = "User" + nextUserNumber++
+                userUsernameMap[ctx] = username
+                broadcastMessage("Server", "$username joined the chat")
+            }
+            ws.onClose { ctx ->
+                val username = userUsernameMap[ctx]
+                userUsernameMap.remove(ctx)
+                broadcastMessage("Server", "$username left the chat")
+            }
+            ws.onMessage { ctx ->
+                broadcastMessage(userUsernameMap[ctx]!!, ctx.message())
             }
         }
     }.start(7070)
