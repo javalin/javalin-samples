@@ -20,7 +20,7 @@ public class JavalinPrometheusExampleApp {
             config.jetty.modifyServer(server -> {
                 server.setHandler(statisticsHandler);
             });
-            config.router.apiBuilder(() -> {
+            config.routes.apiBuilder(() -> {
                 get("/1", ctx -> ctx.result("Hello World"));
                 get("/2", ctx -> {
                     Thread.sleep((long) (Math.random() * 2000));

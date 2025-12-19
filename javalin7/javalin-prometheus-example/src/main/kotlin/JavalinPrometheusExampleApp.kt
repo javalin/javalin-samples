@@ -15,7 +15,7 @@ fun main() {
     val app = Javalin.create { config ->
         config.jetty.threadPool = queuedThreadPool
         config.jetty.modifyServer{ server -> server.handler = statisticsHandler}
-        config.router.apiBuilder {
+        config.routes.apiBuilder {
             get("/1") { ctx -> ctx.result("Hello World") }
             get("/2") { ctx ->
                 Thread.sleep((Math.random() * 2000).toLong())
