@@ -1,7 +1,7 @@
 package app;
 
 import io.javalin.Javalin;
-import io.javalin.community.ssl.SSLPlugin;
+import io.javalin.community.ssl.SslPlugin;
 import io.javalin.http.staticfiles.Location;
 
 public class JavalinHttp2ExampleApp {
@@ -11,16 +11,18 @@ public class JavalinHttp2ExampleApp {
         Javalin app = Javalin.create(config -> {
 
             // Set up the SSL plugin (Enables HTTP2 by default)
-            config.registerPlugin(new SSLPlugin(ssl -> {
+            config.registerPlugin(new SslPlugin(ssl -> {
                 ssl.keystoreFromClasspath("keystore.jks", "password"); // The ssl plugin will enable HTTP/2 by default
                 ssl.insecurePort = 8080;
                 ssl.securePort = 8443;
             }));
 
             config.staticFiles.add("/public", Location.CLASSPATH);
-        }).start();
 
-        app.get("/", ctx -> ctx.result("Hello World"));
+            config.router.mount(router -> {
+                router.get("/", ctx -> ctx.result("Hello World"));
+            });
+        }).start();
 
     }
 

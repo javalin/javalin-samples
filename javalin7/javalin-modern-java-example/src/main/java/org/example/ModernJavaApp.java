@@ -20,20 +20,18 @@ public class ModernJavaApp {
         var app = Javalin.create(javalinConfig -> {
             javalinConfig.validation.register(URI.class, s -> HttpRequest.newBuilder().uri(URI.create(s)).build().uri());
             javalinConfig.http.asyncTimeout = 10_000;
-            javalinConfig.router.mount(router -> {
-                router.get("/async-proxy/<url>", ctx -> {
-                    var validUri = ctx.pathParamAsClass("url", URI.class).get();
-                    var request = HttpRequest.newBuilder().GET().uri(validUri).build();
-                    ctx.future(() -> httpClient.sendAsync(request, ofString())
-                        .thenAccept(response -> {
-                            ctx.html(response.body()).status(response.statusCode());
-                        })
-                        .exceptionally(exception -> {
-                            ctx.html("Error: " + exception.getMessage());
-                            return null;
-                        })
-                    );
-                });
+            javalinConfig.routes.get("/async-proxy/<url>", ctx -> {
+                var validUri = ctx.pathParamAsClass("url", URI.class).get();
+                var request = HttpRequest.newBuilder().GET().uri(validUri).build();
+                ctx.future(() -> httpClient.sendAsync(request, ofString())
+                    .thenAccept(response -> {
+                        ctx.html(response.body()).status(response.statusCode());
+                    })
+                    .exceptionally(exception -> {
+                        ctx.html("Error: " + exception.getMessage());
+                        return null;
+                    })
+                );
             });
         }).start(7070);
 
