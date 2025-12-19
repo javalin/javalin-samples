@@ -10,6 +10,7 @@
 - javalin-kotlin-example
 - javalin-modern-java-example
 - javalin-prometheus-example
+- javalin-realtime-collaboration-example
 
 ## Modules Staying on Javalin 6 (Not Migrating)
 - javalin-async-example (fixed SSL plugin import, moved routes to config)
@@ -20,9 +21,6 @@
 ### javalin-openapi-example
 **Status:** Skipped for now
 **Reason:** User requested to skip this module
-
-### javalin-realtime-collaboration-example
-**Status:** Not started
 
 ### javalin-testing-example
 **Status:** Not started

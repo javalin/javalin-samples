@@ -16,24 +16,22 @@ public class JavalinRealtimeCollaborationExampleApp {
 
         Javalin.create(config -> {
             config.staticFiles.add("/public", Location.CLASSPATH);
-            config.router.mount(router -> {
-                router.ws("/docs/{doc-id}", ws -> {
-                    ws.onConnect(ctx -> {
-                        if (getCollab(ctx) == null) {
-                            createCollab(ctx);
-                        }
-                        getCollab(ctx).clients.add(ctx);
-                        ctx.send(getCollab(ctx).doc);
+            config.routes.ws("/docs/{doc-id}", ws -> {
+                ws.onConnect(ctx -> {
+                    if (getCollab(ctx) == null) {
+                        createCollab(ctx);
+                    }
+                    getCollab(ctx).clients.add(ctx);
+                    ctx.send(getCollab(ctx).doc);
+                });
+                ws.onMessage(ctx -> {
+                    getCollab(ctx).doc = ctx.message();
+                    getCollab(ctx).clients.stream().filter(c -> c.session.isOpen()).forEach(s -> {
+                        s.send(getCollab(ctx).doc);
                     });
-                    ws.onMessage(ctx -> {
-                        getCollab(ctx).doc = ctx.message();
-                        getCollab(ctx).clients.stream().filter(c -> c.session.isOpen()).forEach(s -> {
-                            s.send(getCollab(ctx).doc);
-                        });
-                    });
-                    ws.onClose(ctx -> {
-                        getCollab(ctx).clients.remove(ctx);
-                    });
+                });
+                ws.onClose(ctx -> {
+                    getCollab(ctx).clients.remove(ctx);
                 });
             });
         }).start(7070);

@@ -13,24 +13,22 @@ fun main() {
 
     Javalin.create {
         it.staticFiles.add("/public", Location.CLASSPATH)
-        it.router.mount {
-            it.ws("/docs/{doc-id}") { ws ->
-                ws.onConnect { ctx ->
-                    if (collaborations[ctx.docId] == null) {
-                        collaborations[ctx.docId] = Collaboration()
-                    }
-                    collaborations[ctx.docId]!!.clients.add(ctx)
-                    ctx.send(collaborations[ctx.docId]!!.doc)
+        it.routes.ws("/docs/{doc-id}") { ws ->
+            ws.onConnect { ctx ->
+                if (collaborations[ctx.docId] == null) {
+                    collaborations[ctx.docId] = Collaboration()
                 }
-                ws.onMessage { ctx ->
-                    collaborations[ctx.docId]!!.doc = ctx.message()
-                    collaborations[ctx.docId]!!.clients.filter { it.session.isOpen }.forEach {
-                        it.send(collaborations[ctx.docId]!!.doc)
-                    }
+                collaborations[ctx.docId]!!.clients.add(ctx)
+                ctx.send(collaborations[ctx.docId]!!.doc)
+            }
+            ws.onMessage { ctx ->
+                collaborations[ctx.docId]!!.doc = ctx.message()
+                collaborations[ctx.docId]!!.clients.filter { it.session.isOpen }.forEach {
+                    it.send(collaborations[ctx.docId]!!.doc)
                 }
-                ws.onClose { ctx ->
-                    collaborations[ctx.docId]!!.clients.remove(ctx)
-                }
+            }
+            ws.onClose { ctx ->
+                collaborations[ctx.docId]!!.clients.remove(ctx)
             }
         }
     }.start(7070)
