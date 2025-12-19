@@ -14,29 +14,22 @@ public class JavalinHtmlFormsExampleApp {
     }};
 
     public static void main(String[] args) {
-
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public", Location.CLASSPATH);
-        });
-
-        app.post("/make-reservation", ctx -> {
-            reservations.put(ctx.formParam("day"), ctx.formParam("time"));
-            ctx.html("Your reservation has been saved");
-        });
-
-        app.get("/check-reservation", ctx -> {
-            ctx.html(reservations.get(ctx.queryParam("day")));
-        });
-
-        app.post("/upload-example", ctx -> {
-            ctx.uploadedFiles("files").forEach(file -> {
-                FileUtil.streamToFile(file.content(), "upload/" + file.filename());
+            config.routes.post("/make-reservation", ctx -> {
+                reservations.put(ctx.formParam("day"), ctx.formParam("time"));
+                ctx.html("Your reservation has been saved");
             });
-            ctx.html("Upload successful");
-        });
-
-        app.start();
-
+            config.routes.get("/check-reservation", ctx -> {
+                ctx.html(reservations.get(ctx.queryParam("day")));
+            });
+            config.routes.post("/upload-example", ctx -> {
+                ctx.uploadedFiles("files").forEach(file -> {
+                    FileUtil.streamToFile(file.content(), "upload/" + file.filename());
+                });
+                ctx.html("Upload successful");
+            });
+        }).start();
     }
 
 }

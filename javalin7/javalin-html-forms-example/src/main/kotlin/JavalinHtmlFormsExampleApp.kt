@@ -8,27 +8,20 @@ private val reservations = mutableMapOf<String?, String?>(
 )
 
 fun main() {
-
-    val app = Javalin.create {
-        it.staticFiles.add("/public", Location.CLASSPATH)
-    }
-
-    app.post("/make-reservation") { ctx ->
-        reservations[ctx.formParam("day")] = ctx.formParam("time")
-        ctx.html("Your reservation has been saved")
-    }
-
-    app.get("/check-reservation") { ctx ->
-        ctx.html(reservations[ctx.queryParam("day")]!!)
-    }
-
-    app.post("/upload-example") { ctx ->
-        ctx.uploadedFiles("files").forEach {
-            FileUtil.streamToFile(it.content, "upload/${it.filename}")
+    val app = Javalin.create { config ->
+        config.staticFiles.add("/public", Location.CLASSPATH)
+        config.routes.post("/make-reservation") { ctx ->
+            reservations[ctx.formParam("day")] = ctx.formParam("time")
+            ctx.html("Your reservation has been saved")
         }
-        ctx.html("Upload successful")
-    }
-
-    app.start(7070)
-
+        config.routes.get("/check-reservation") { ctx ->
+            ctx.html(reservations[ctx.queryParam("day")]!!)
+        }
+        config.routes.post("/upload-example") { ctx ->
+            ctx.uploadedFiles("files").forEach {
+                FileUtil.streamToFile(it.content, "upload/${it.filename}")
+            }
+            ctx.html("Upload successful")
+        }
+    }.start(7070)
 }
